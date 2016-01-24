@@ -279,7 +279,7 @@ body {
     -moz-flex: 1 1 30%;
     -ms-flex: 1 1 30%;
     flex: 1 1 30%;
-    font-size: 70%; }
+    font-size: 80%; }
   #footer-section #two {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
@@ -342,7 +342,7 @@ body {
   transform: translateY(25%);
   position: static;
   font-family: 'agenda', sans-serif;
-  font-size: 3em;
+  font-size: 3.2rem;
   padding: 10px;
   text-decoration: none;
   color: #FE5F55; }
@@ -359,8 +359,8 @@ body {
 
 .contact-icons {
   display: inline-block;
-  height: 60px;
-  width: 60px;
+  height: 65px;
+  width: 65px;
   margin: 5px; }
 
 .inherit-max-immediate {
@@ -437,3 +437,17 @@ body {
   -moz-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap; }
+
+#project-gallery {
+  -webkit-box-pack: "center";
+  -moz-box-pack: "center";
+  box-pack: "center";
+  -webkit-justify-content: "center";
+  -moz-justify-content: "center";
+  -ms-justify-content: "center";
+  -o-justify-content: "center";
+  justify-content: "center";
+  -ms-flex-pack: "center";
+  margin: 0px 50px; }
+  #project-gallery .flex-child-row {
+    margin: 10px 15px; }
