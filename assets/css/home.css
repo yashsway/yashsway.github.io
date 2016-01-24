@@ -123,6 +123,10 @@ body {
 #main-wrapper {
   height: 100%; }
 
+.wrapper {
+  height: auto;
+  width: auto; }
+
 #accent-header {
   position: fixed;
   z-index: 2;
@@ -317,7 +321,6 @@ body {
   border-top-left-radius: 0.25rem;
   height: 250px;
   width: 420px;
-  margin: 10px;
   background-color: #F7FCFF;
   border-bottom: 18px #DEE2E5 solid; }
 
@@ -451,3 +454,22 @@ body {
   margin: 0px 50px; }
   #project-gallery .flex-child-row {
     margin: 10px 15px; }
+
+.tool-badge {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  height: 20px;
+  width: auto;
+  float: right;
+  padding: 0px 10px;
+  background-color: #FE5F55;
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+  vertical-align: top;
+  font-family: agenda, sans-serif;
+  letter-spacing: 2px; }
+
+.tool-badge-more {
+  background-color: #8D99AE;
+  color: #D8DBE2; }

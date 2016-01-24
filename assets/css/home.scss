@@ -49,6 +49,10 @@ body {
 #main-wrapper {
     height: 100%;
 }
+.wrapper {
+    height: auto;
+    width: auto;
+}
 #accent-header {
     position: fixed;
     z-index: 2;
@@ -194,7 +198,6 @@ body {
     @include border-left-radius(0.25rem);
     height: 250px;
     width: 420px;
-    margin: 10px;
     background-color: #F7FCFF;
     border-bottom: 18px #DEE2E5 solid;
 }
@@ -222,7 +225,7 @@ body {
     font-size: 3.2rem;
     padding: 10px;
     text-decoration: none;
-    color: #FE5F55;
+    color: $primary-color;
 }
 
 #social-links {
@@ -270,4 +273,23 @@ body {
     .flex-child-row {
         margin: 10px 15px;
     }
+}
+
+.tool-badge {
+    @include border-bottom-radius(15px);
+    height: 20px;
+    width: auto;
+    float: right;
+    padding: 0px 10px;
+    background-color: $primary-color;
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    vertical-align: top;
+    font-family: agenda, sans-serif;
+    letter-spacing: 2px;
+}
+.tool-badge-more {
+    background-color: $tertiary-dark-grey;
+    color: $tertiary-light-grey;
 }
