@@ -1,0 +1,72 @@
+@font-face {
+  font-family: 'agenda';
+  src: url(../../fonts/agendabold-webfont.woff) format("woff"), url(../../fonts/agendabold-webfont.woff2) format("woff2"); }
+@font-face {
+  font-family: 'montserrat';
+  src: url(../../fonts/Montserrat-Bold.ttf) format("truetype"); }
+@font-face {
+  font-family: 'abel';
+  src: url(../../fonts/Abel-Regular.ttf) format("truetype"); }
+body {
+  overflow-x: hidden; }
+
+a {
+  outline: 0; }
+
+a:visited {
+  outline: 0; }
+
+input::-moz-focus-inner {
+  border: 0; }
+
+.center {
+  text-align: center; }
+
+/* Centering Hack */
+.content {
+  margin: 0px auto;
+  display: table; }
+
+.content div {
+  display: table-cell; }
+
+/* Max height inherit */
+.inherit-max {
+  max-height: inherit; }
+
+.zero-margin, .header, .sub-header, .sub-sub-header, .text {
+  margin: 0px; }
+
+.header {
+  font-family: 'agenda',sans-serif;
+  font-size: 11.642em;
+  font-kerning: auto;
+  line-height: 130%;
+  padding-bottom: 5px; }
+
+.sub-header {
+  font-family: 'abel',sans-serif;
+  font-size: 7.451em;
+  font-kerning: auto;
+  line-height: 125%;
+  padding-bottom: 5px; }
+
+.sub-sub-header {
+  font-size: 4.768em;
+  font-kerning: auto;
+  line-height: 120%;
+  padding-bottom: 5px;
+  font-family: 'abel',sans-serif; }
+
+.text {
+  padding: 0px 20px 20px 20px;
+  font-size: 1.563em;
+  font-kerning: auto;
+  line-height: 100%;
+  font-family: 'EB Garamond',serif; }
+
+.test {
+  background-color: #ABB9D3;
+  border: 1px solid;
+  border-color: black;
+  color: white; }
