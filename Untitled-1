@@ -1,18 +1,30 @@
-<section class="block col-sm-8 col-md-7 col-lg-6">
-                        <div class="row" id="header-navigation">
-                            <ul class="navigation" id="main-navigation">
-                                <li>
-                                    <div class="sub-sub-header">Home</div>
-                                </li>
-                                <li>
-                                    <div class="sub-sub-header">Me</div>
-                                </li>
-                                <li>
-                                    <div class="sub-sub-header">Work</div>
-                                </li>
-                                <li>
-                                    <div class="sub-sub-header">Media</div>
-                                </li>
-                            </ul>
+<div class="col-lg-12 block inherit-max">
+                <div class="row inherit-max" id="one">
+                    <div class="col-sm-12 col-lg-offset-2 col-lg-8">
+                        <p class="sub-header center section-header">I love code & design.</p>
+                    </div>
+                </div>
+                <div class="row inherit-max" id="two">
+                    <div class="col-md-6 col-lg-offset-1 col-lg-6 top-margin">
+                        <p class="text">I'm always looking for the next great opportunity to create something extraordinary.
+                            <br>
+                            <br>Back in grade 7, everyone saw PowerPoint merely as a presentation tool. I saw it as something else. I had quite a collection of encyclopedias which I spent hours drooling over. Space always intrigued me, so I made a mini-encyclopedia about it with navigation, menus, illustrations...all using PowerPoint and weeks of research online. I think I sold around 10 copies, packaging and all. I've come a long way since then and today I've had the terrific opportunity to be a Developer at McMaster University. I saw similar potential here. I made a full-fledged Help Desk web-app from the ground up to solve the department's inefficient way of dealing with internal IT issues.
+                            <br>
+                            <br>I love solving problems and going beyond what is required. I love working with creative and passionate people. I love code and the limitless possibilities it provides at my fingertips. But if there's one thing words cannot express my love for, it is the intersection of code and design. My imagination is going nuts as I write about this.
+                            <br>
+                            <br>Let's get to know each other!</p>
+                    </div>
+                    <div class="col-md-6 col-lg-3 top-margin">
+                        <div class="row">
+                            <div class="picture-card">
+
+                            </div>
                         </div>
-                    </section>
+                        <div class="row">
+                            <div class="picture-card">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

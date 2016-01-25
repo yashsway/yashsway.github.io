@@ -4,7 +4,7 @@ function sections(){
     $(".inherit-max-immediate").css("height",parseFloat($(".inherit-max-immediate").parent().css("height")));
 }
 function responsiveFixes(){
-    sections();
+    //sections();
 }
 //onload stuff
 $(document).ready(function(){

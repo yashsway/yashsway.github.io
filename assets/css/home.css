@@ -246,10 +246,9 @@ body {
   margin-right: 20px; }
 
 .home-section {
-  height: 120vh; }
+  height: 110vh; }
 
 #samples-section {
-  height: auto;
   background-color: #3F325D; }
   #samples-section .section-header {
     color: white; }
