@@ -200,6 +200,8 @@ body {
     width: 420px;
     background-color: #F7FCFF;
     border-bottom: 18px #DEE2E5 solid;
+    background-position: center;
+    background-size: cover;
 }
 .top-margin {
     margin-top: 20px;
@@ -282,7 +284,7 @@ body {
     float: right;
     padding: 0px 10px;
     background-color: $primary-color;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: white;
     text-align: center;
     vertical-align: top;
@@ -292,4 +294,36 @@ body {
 .tool-badge-more {
     background-color: $tertiary-dark-grey;
     color: $tertiary-light-grey;
+}
+
+#collateral {
+    background-image: url(../../media/images/collateral.png);
+}
+
+#blaze {
+    background-image: url(../../media/images/blaze.png);
+}
+
+#pigeon {
+    background-image: url(../../media/images/pigeon.png);
+}
+
+#yaac {
+    background-image: url(../../media/images/yaac.png);
+}
+
+#beaver {
+    background-image: url(../../media/images/beaver.png);
+}
+
+#trunk {
+    background-image: url(../../media/images/trunk.png);
+}
+
+#wstates {
+    background-image: url(../../media/images/wstates.png);
+}
+
+#indev {
+    background-image: url(../../media/images/indev.png);
 }
