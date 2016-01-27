@@ -7,7 +7,8 @@
 @font-face {
   font-family: 'abel';
   src: url(../../fonts/Abel-Regular.ttf) format("truetype"); }
-body {
+html, body {
+  width: 100%;
   overflow-x: hidden; }
 
 a {
@@ -473,11 +474,11 @@ body {
   float: right;
   padding: 0px 10px;
   background-color: #FE5F55;
-  font-size: 1.2vh;
+  font-size: 0.8vw;
   color: white;
   text-align: center;
   vertical-align: top;
-  font-family: agenda, sans-serif;
+  font-family: 'agenda', sans-serif;
   letter-spacing: 2px; }
 
 .tool-badge-more {

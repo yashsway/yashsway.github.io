@@ -7,7 +7,8 @@
 @font-face {
   font-family: 'abel';
   src: url(../../fonts/Abel-Regular.ttf) format("truetype"); }
-body {
+html, body {
+  width: 100%;
   overflow-x: hidden; }
 
 a {

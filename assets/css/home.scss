@@ -6,7 +6,7 @@ body {
 }
 .adjust-pgphs {
     margin-top:1px;
-    margin-bottom:1px
+    margin-bottom:1px;
 }
 .cubes {
     @include border-top-radius(20px);
@@ -18,7 +18,7 @@ body {
     border-bottom:3px solid #2B2D42;
     margin:5px;
     display:inline-block;
-    color:#fff
+    color:#fff;
 }
 .cubes#one {
     background-color:#42517C;
@@ -287,11 +287,11 @@ body {
     float: right;
     padding: 0px 10px;
     background-color: $primary-color;
-    font-size: 1.2vh;
+    font-size: 0.8vw;
     color: white;
     text-align: center;
     vertical-align: top;
-    font-family: agenda, sans-serif;
+    font-family: 'agenda', sans-serif;
     letter-spacing: 2px;
 }
 .tool-badge-more {
