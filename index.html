@@ -27,7 +27,9 @@
     <link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:500,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!--Normalize CSS-->
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css' rel='stylesheet' type='text/css'>
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
     <!--Flexbox-->
     <!--    <link rel="stylesheet" href="//cdn.jsdelivr.net/flexboxgrid/6.3.0/flexboxgrid.min.css" type="text/css" >-->
     <!--Custom CSS-->
@@ -69,9 +71,14 @@
                 </div>
             </div>-->
         </section>
-        <section class="row home-section" id="hook-section">
-           <p class="sub-header center section-header">I love code &amp; design.</p>
-<!--            <div class="col-lg-12 block inherit-max">
+        <section id="hook-section">
+            <div class="flex-parent-column inherit-max">
+                <div class="flex-child-column" id="one">
+                    <p class="sub-header center section-header">I love code &amp; design.</p>
+                </div>
+            </div>
+
+            <!--            <div class="col-lg-12 block inherit-max">
                 <div class="row inherit-max" id="one">
                     <div class="col-sm-12 col-lg-offset-2 col-lg-8">
                         <p class="sub-header center section-header">I love code &amp; design.</p>
@@ -112,81 +119,81 @@
                         <div class="flex-child-row">
                             <div class="content">
                                 <div class="wrapper">
-                                    <details class="tool-badge tool-badge-more">+1 more</details>
-                                    <details class="tool-badge">GML</details>
-                                    <details class="picture-card" id="collateral"></details>
+                                    <div class="tool-badge tool-badge-more">+1 more</div>
+                                    <div class="tool-badge">GML</div>
+                                    <div class="picture-card" id="collateral"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="flex-child-row">
                             <div class="content">
                                 <div class="wrapper">
-                                    <details class="tool-badge">HTML5 &amp; CSS3</details>
-                                    <details class="tool-badge">JS &amp; jQuery</details>
-                                    <details class="tool-badge">Bootstrap</details>
-                                    <details class="picture-card" id="blaze"></details>
+                                    <div class="tool-badge">HTML5 &amp; CSS3</div>
+                                    <div class="tool-badge">JS &amp; jQuery</div>
+                                    <div class="tool-badge">Bootstrap</div>
+                                    <div class="picture-card" id="blaze"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="flex-child-row">
                             <div class="content">
                                 <div class="wrapper">
-                                    <details class="tool-badge tool-badge-more">+2 more</details>
-                                    <details class="tool-badge">HTML5 &amp; CSS3</details>
-                                    <details class="tool-badge">JS &amp; jQuery</details>
-                                    <details class="tool-badge">PHP</details>
-                                    <details class="tool-badge">mySQL</details>
-                                    <details class="picture-card" id="pigeon"></details>
+                                    <div class="tool-badge tool-badge-more">+2 more</div>
+                                    <div class="tool-badge">HTML5 &amp; CSS3</div>
+                                    <div class="tool-badge">JS &amp; jQuery</div>
+                                    <div class="tool-badge">PHP</div>
+                                    <div class="tool-badge">mySQL</div>
+                                    <div class="picture-card" id="pigeon"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="flex-child-row">
                             <div class="content">
                                 <div class="wrapper">
-                                    <details class="tool-badge tool-badge-more">+2 more</details>
-                                    <details class="tool-badge">Socket.io</details>
-                                    <details class="tool-badge">Express.js</details>
-                                    <details class="tool-badge">Node.js</details>
-                                    <details class="picture-card" id="yaac"></details>
+                                    <div class="tool-badge tool-badge-more">+2 more</div>
+                                    <div class="tool-badge">Socket.io</div>
+                                    <div class="tool-badge">Express.js</div>
+                                    <div class="tool-badge">Node.js</div>
+                                    <div class="picture-card" id="yaac"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="flex-child-row">
                             <div class="content">
                                 <div class="wrapper">
-                                    <details class="tool-badge tool-badge-more">+3 more</details>
-                                    <details class="tool-badge">Parse</details>
-                                    <details class="tool-badge">Ionic</details>
-                                    <details class="tool-badge">PhoneGap</details>
-                                    <details class="picture-card" id="beaver"></details>
+                                    <div class="tool-badge tool-badge-more">+3 more</div>
+                                    <div class="tool-badge">Parse</div>
+                                    <div class="tool-badge">Ionic</div>
+                                    <div class="tool-badge">PhoneGap</div>
+                                    <div class="picture-card" id="beaver"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="flex-child-row">
                             <div class="content">
                                 <div class="wrapper">
-                                    <details class="tool-badge tool-badge-more">+3 more</details>
-                                    <details class="tool-badge">PHP</details>
-                                    <details class="tool-badge">mySQL</details>
-                                    <details class="tool-badge">UIKit</details>
-                                    <details class="tool-badge">Packery</details>
-                                    <details class="picture-card" id="trunk"></details>
+                                    <div class="tool-badge tool-badge-more">+3 more</div>
+                                    <div class="tool-badge">PHP</div>
+                                    <div class="tool-badge">mySQL</div>
+                                    <div class="tool-badge">UIKit</div>
+                                    <div class="tool-badge">Packery</div>
+                                    <div class="picture-card" id="trunk"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="flex-child-row">
                             <div class="content">
                                 <div class="wrapper">
-                                    <details class="tool-badge">Java</details>
-                                    <details class="picture-card" id="wstates"></details>
+                                    <div class="tool-badge">Java</div>
+                                    <div class="picture-card" id="wstates"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="flex-child-row">
                             <div class="content">
                                 <div class="wrapper">
-                                    <details class="tool-badge tool-badge-more">In Development</details>
-                                    <details class="picture-card" id="indev"></details>
+                                    <div class="tool-badge tool-badge-more">In Development</div>
+                                    <div class="picture-card" id="indev"></div>
                                 </div>
                             </div>
                         </div>
@@ -194,16 +201,21 @@
                 </div>
             </div>
         </section>
-        <section class="row home-section" id="recommend-section">
-            <div class="col-lg-12">
+        <section id="experience-section">
+            <div class="flex-parent-column inherit-max">
+                <div class="flex-child-column" id="one">
+                    <p class="sub-header center section-header">Who I've worked with</p>
+                </div>
+            </div>
+            <!--<div class="col-lg-12">
                 <div class="row">
                     <div class="col-lg-offset-2 col-lg-8">
                         <p class="sub-header center section-header">Who I've worked with</p>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </section>
-        <section class="" id="footer-section">
+        <section id="footer-section">
             <div class="flex-parent-column inherit-max">
                 <div class="flex-child-column" id="one">
                     <p class="sub-header center section-header">Let's grab a coffee.</p>
@@ -240,42 +252,6 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="col-lg-12 block inherit-max">
-                <div class="row inherit-max" id="one">
-                    <div class="col-lg-offset-2 col-lg-8 inherit-max-immediate">
-                        <p class="sub-header center section-header">Let's grab a coffee.</p>
-                    </div>
-                </div>
-                <div class="row inherit-max" id="two">
-                    <div class="col-lg-12 block-preserve inherit-max-immediate">
-                        <div class="content">
-                            <div id="social-links">
-                                <a href="" target="_blank"><img class="contact-icons" src="media/icons/phone.png">
-                                </a>
-                                <img class="contact-icons" src="media/icons/email.png" alt="email">
-                                <a href="https://ca.linkedin.com/in/yashgopal" target="_blank"><img class="contact-icons" src="media/icons/linkedIn.png" alt="linkedIN">
-                                </a>
-                                <img class="contact-icons" src="media/icons/skype.png" alt="skype">
-                                <a href="https://github.com/MightyRevenge" target="_blank"><img class="contact-icons" src="media/icons/git.png">
-                                </a>
-                                <a href="https://stackoverflow.com/users/3436164/mightyrevenge" target="_blank"><img class="contact-icons" src="media/icons/stackover.png">
-                                </a>
-                                <img class="contact-icons" src="media/icons/devpost.png">
-                                <img class="contact-icons" src="media/icons/medium.png">
-                                <img class="contact-icons" src="media/icons/twitter.png">
-                                <img class="contact-icons" src="media/icons/spotify.png">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row inherit-max" id="three">
-                    <div class="col-lg-12 inherit-max-immediate">
-                        <div class="content">
-                            <p class="sub-sub-header center" id="author">Made from scratch with &#9829</p>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
         </section>
     </div>
     <!--JS Stuff-->

@@ -27,7 +27,7 @@ input::-moz-focus-inner {
   margin: 0px auto;
   display: table; }
 
-.content div {
+.content > div {
   display: table-cell; }
 
 /* Max height inherit */
@@ -39,20 +39,20 @@ input::-moz-focus-inner {
 
 .header {
   font-family: 'agenda',sans-serif;
-  font-size: 11.642em;
+  font-size: 11.642vw;
   font-kerning: auto;
   line-height: 130%;
   padding-bottom: 5px; }
 
 .sub-header {
   font-family: 'abel',sans-serif;
-  font-size: 7.451em;
+  font-size: 7.451vw;
   font-kerning: auto;
   line-height: 125%;
   padding-bottom: 5px; }
 
 .sub-sub-header {
-  font-size: 4.768em;
+  font-size: 4.768vw;
   font-kerning: auto;
   line-height: 120%;
   padding-bottom: 5px;
@@ -60,7 +60,7 @@ input::-moz-focus-inner {
 
 .text {
   padding: 0px 20px 20px 20px;
-  font-size: 1.563em;
+  font-size: 1.563vw;
   font-kerning: auto;
   line-height: 100%;
   font-family: 'EB Garamond',serif; }
@@ -115,7 +115,7 @@ body {
   border-bottom-color: #FE5F55;
   border-width: 0 0 5px;
   position: static;
-  font-size: 14.552em;
+  font-size: 14.552vw;
   line-height: 85%;
   padding-bottom: 0px;
   color: #42517C; }
@@ -188,7 +188,7 @@ body {
 #home-designation {
   position: static;
   display: block;
-  font-size: 5em;
+  font-size: 5vw;
   margin: 5px 0px 0px 10px;
   color: #2B2D3B; }
 
@@ -217,7 +217,7 @@ body {
     width: 120px;
     vertical-align: middle;
     line-height: 40px;
-    font-size: 1.2em;
+    font-size: 1.2vw;
     background-color: #FE5F55;
     text-transform: uppercase;
     text-decoration: none; }
@@ -246,7 +246,7 @@ body {
   margin-right: 20px; }
 
 .home-section {
-  height: 110vh; }
+  height: 100vh; }
 
 #samples-section {
   background-color: #3F325D; }
@@ -268,6 +268,15 @@ body {
     -moz-flex: 1 1 80%;
     -ms-flex: 1 1 80%;
     flex: 1 1 80%; }
+
+#experience-section #one {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1 1 20%;
+  -moz-flex: 1 1 20%;
+  -ms-flex: 1 1 20%;
+  flex: 1 1 20%; }
 
 #footer-section {
   height: auto;
@@ -302,7 +311,7 @@ body {
 
 .section-header {
   font-family: 'agenda', sans-serif;
-  font-size: 5.96em;
+  font-size: 5.96vw;
   padding: 20px;
   text-decoration: none; }
 
@@ -346,7 +355,7 @@ body {
   transform: translateY(25%);
   position: static;
   font-family: 'agenda', sans-serif;
-  font-size: 3.2rem;
+  font-size: 3.2vw;
   padding: 10px;
   text-decoration: none;
   color: #FE5F55; }
@@ -464,7 +473,7 @@ body {
   float: right;
   padding: 0px 10px;
   background-color: #FE5F55;
-  font-size: 1.1rem;
+  font-size: 1.2vh;
   color: white;
   text-align: center;
   vertical-align: top;

@@ -27,7 +27,7 @@ input::-moz-focus-inner {
   margin: 0px auto;
   display: table; }
 
-.content div {
+.content > div {
   display: table-cell; }
 
 /* Max height inherit */
@@ -39,20 +39,20 @@ input::-moz-focus-inner {
 
 .header {
   font-family: 'agenda',sans-serif;
-  font-size: 11.642em;
+  font-size: 11.642vw;
   font-kerning: auto;
   line-height: 130%;
   padding-bottom: 5px; }
 
 .sub-header {
   font-family: 'abel',sans-serif;
-  font-size: 7.451em;
+  font-size: 7.451vw;
   font-kerning: auto;
   line-height: 125%;
   padding-bottom: 5px; }
 
 .sub-sub-header {
-  font-size: 4.768em;
+  font-size: 4.768vw;
   font-kerning: auto;
   line-height: 120%;
   padding-bottom: 5px;
@@ -60,7 +60,7 @@ input::-moz-focus-inner {
 
 .text {
   padding: 0px 20px 20px 20px;
-  font-size: 1.563em;
+  font-size: 1.563vw;
   font-kerning: auto;
   line-height: 100%;
   font-family: 'EB Garamond',serif; }
