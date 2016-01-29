@@ -20,21 +20,7 @@ body {
     display:inline-block;
     color:#fff;
 }
-.cubes#one {
-    background-color:#42517C;
-}
-.cubes#two {
-    background-color:#FE5F55;
-}
-.cubes#three {
-    background-color:#3F325D;
-}
-.cubes#four {
-    background-color:#FFFFC7;
-}
-.cubes#\35 {
-    background-color:#FFE066;
-}
+
 #home-title {
     @include border-style(null null solid);
     @include border-color(null null #FE5F55 null);
@@ -229,6 +215,7 @@ body {
     font-family: 'agenda', sans-serif;
     font-size: 3.2vw;
     padding: 10px;
+    left: 40%;
     text-decoration: none;
     color: $primary-color;
 }
@@ -329,4 +316,7 @@ body {
 
 #indev {
     background-image: url(../../media/images/indev.png);
+}
+#cool {
+    margin: 0px auto;
 }
