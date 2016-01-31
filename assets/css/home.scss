@@ -4,6 +4,19 @@ body {
     background-color:#E1F7F7;
     max-width: 100vw;
 }
+.home-section {
+    box-sizing: border-box;
+}
+.block {
+    box-sizing: border-box;
+    height: inherit;
+}
+/*.block-preserve {
+    @extend .block;
+    @include transform-style(preserve-3d);
+    position: relative;
+}*/
+
 .adjust-pgphs {
     margin-top:1px;
     margin-bottom:1px;
@@ -49,10 +62,9 @@ body {
 }
 #header-section {
     @include background(linear-gradient(left, rgba(250,255,255,0.5) 10%,rgba(250,255,255,0.5) 90%),url("../../media/images/workdesk-min.jpeg"));
-    order: 1;
-    @include flex(1 0 auto);
-    min-height: 100vh;
+    height: 100vh;
     background-position: 50% 85%;
+    background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
@@ -70,6 +82,9 @@ body {
     }
     .flex-parent-column {
         @include justify-content("center");
+    }
+    > div {
+        justify-content: center;
     }
 }
 
@@ -120,28 +135,12 @@ body {
     display: inline-block;
 }
 
-.block {
-    height: 100%;
-}
-/*.block-preserve {
-    @extend .block;
-    @include transform-style(preserve-3d);
-    position: relative;
-}*/
-
 #main-navigation {
     @include padding(10px null null null);
     @include margin(null 20px null null);
 }
 
-.home-section {
-    display: block;
-    //height: 100vh;
-}
-
 #samples-section {
-    order: 3;
-    @include flex(1 0 auto);
     background-color:#3F325D;
     .section-header {
         color: white;
@@ -155,16 +154,13 @@ body {
 }
 
 #experience-section {
-    order: 4;
-    @include flex(1 0 auto);
     #one {
         @include flex(1 1 20%);
         color: $tertiary-blue-grey-variant;
     }
 }
 #footer-section {
-    order: 5;
-    @include flex(1 0 auto);
+    min-height: none;
     height: auto;
     background-color: $tertiary-blue-grey-variant;
     .section-header {
@@ -207,8 +203,6 @@ body {
     margin-top: 20px;
 }
 #hook-section {
-    order: 2;
-    @include flex(1 0 auto);
     max-height: none;
     .text {
         line-height: 180%;
