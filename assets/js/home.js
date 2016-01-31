@@ -8,8 +8,7 @@ function responsiveFixes(){
 }
 //onload stuff
 $(document).ready(function(){
-    responsiveFixes();
-    $(window).on('resize',function(){
+   /* $(window).on('resize',function(){
         responsiveFixes();
-    });
+    });*/
 });

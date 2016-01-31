@@ -33,6 +33,10 @@ html, body {
 // Removing link outlines
 a {
     outline: 0;
+    text-decoration: none;
+}
+a:active {
+    outline: 0;
 }
 a:visited {
     outline: 0;
