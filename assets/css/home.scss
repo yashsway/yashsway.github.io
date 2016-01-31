@@ -48,7 +48,10 @@ body {
     background-color: $secondary-color;
 }
 #header-section {
-    @include background(linear-gradient(left, rgba(250,255,255,0.5) 10%,rgba(250,255,255,0.5) 90%),url("../../media/images/workdesk.jpg"));
+    @include background(linear-gradient(left, rgba(250,255,255,0.5) 10%,rgba(250,255,255,0.5) 90%),url("../../media/images/workdesk-min.jpeg"));
+    order: 1;
+    @include flex(1 0 auto);
+    min-height: 100vh;
     background-position: 50% 85%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -120,11 +123,11 @@ body {
 .block {
     height: 100%;
 }
-.block-preserve {
+/*.block-preserve {
     @extend .block;
     @include transform-style(preserve-3d);
     position: relative;
-}
+}*/
 
 #main-navigation {
     @include padding(10px null null null);
@@ -132,10 +135,13 @@ body {
 }
 
 .home-section {
-    height: 100vh;
+    display: block;
+    //height: 100vh;
 }
 
 #samples-section {
+    order: 3;
+    @include flex(1 0 auto);
     background-color:#3F325D;
     .section-header {
         color: white;
@@ -149,13 +155,18 @@ body {
 }
 
 #experience-section {
+    order: 4;
+    @include flex(1 0 auto);
     #one {
         @include flex(1 1 20%);
+        color: $tertiary-blue-grey-variant;
     }
 }
 #footer-section {
+    order: 5;
+    @include flex(1 0 auto);
     height: auto;
-    background-color: #2B2D3B;
+    background-color: $tertiary-blue-grey-variant;
     .section-header {
         color: white;
     }
@@ -196,13 +207,15 @@ body {
     margin-top: 20px;
 }
 #hook-section {
-    height: auto;
+    order: 2;
+    @include flex(1 0 auto);
     max-height: none;
     .text {
         line-height: 180%;
     }
     #one{
         height: 20%;
+        color: $tertiary-blue-grey-variant;
     }
     #two {
         height: 80%;
@@ -233,35 +246,9 @@ body {
     margin: 5px;
 }
 
-.inherit-max-immediate {
-    height: inherit;
-}
-.flex-parent-column {
-    @include display(flex);
-    @include flex-direction(column);
-    overflow: hidden;
-}
-.flex-child-column {
-    @include flex(1 1 auto);
-    margin: 10px;
-}
-.flex-parent-row {
-    @include display("flex");
-    @include flex-direction("row");
-    //@include justify-content("flex-start");
-    @include align-content("flex-start");
-    overflow: hidden;
-}
-.flex-child-row {
-    @include flex(1 1 auto);
-}
-.flex-wrappable {
-    @include flex-wrap(wrap);
-}
-
 #project-gallery {
     @include justify-content("center");
-    margin: 0px 50px;
+    margin: 0px 10px;
     .flex-child-row {
         margin: 10px 15px;
     }
@@ -274,12 +261,13 @@ body {
     float: right;
     padding: 0px 10px;
     background-color: $primary-color;
-    font-size: 0.8vw;
+    font-size: 10px;
     color: white;
     text-align: center;
     vertical-align: top;
     font-family: 'agenda', sans-serif;
     letter-spacing: 2px;
+    box-shadow: 0px 0.5px 5px #1B1B1E;
 }
 .tool-badge-more {
     background-color: $tertiary-dark-grey;
