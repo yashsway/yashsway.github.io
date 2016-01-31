@@ -7,6 +7,8 @@
 @font-face {
   font-family: 'abel';
   src: url(../../fonts/Abel-Regular.ttf) format("truetype"); }
+/* Breakpoints */
+/* end of breakpoints */
 html, body {
   width: 100%;
   overflow-x: hidden; }
@@ -96,10 +98,6 @@ input::-moz-focus-inner {
   -moz-flex-direction: "row";
   flex-direction: "row";
   -ms-flex-direction: "row";
-  -webkit-align-content: "flex-start";
-  -moz-align-content: "flex-start";
-  align-content: "flex-start";
-  -ms-flex-line-pack: start;
   overflow: hidden; }
 
 .flex-child-row {
@@ -123,34 +121,42 @@ input::-moz-focus-inner {
 /* end of flexbox */
 .header {
   font-family: 'agenda',sans-serif;
-  font-size: 7.993vw;
+  font-size: 7.993em;
   font-kerning: auto;
   line-height: 130%;
-  padding-bottom: 5px; }
+  padding-bottom: 5px;
+  color: #2B2D3B; }
 
 .sub-header {
   font-family: 'abel',sans-serif;
-  font-size: 5.653vw;
+  font-size: 5.653em;
   font-kerning: auto;
   line-height: 125%;
-  padding-bottom: 5px; }
+  padding-bottom: 5px;
+  color: #2B2D3B; }
 
 .sub-sub-header {
-  font-size: 3.998vw;
+  font-size: 3.998em;
   font-kerning: auto;
   line-height: 120%;
   padding-bottom: 5px;
-  font-family: 'abel',sans-serif; }
+  font-family: 'abel',sans-serif;
+  color: #2B2D3B; }
 
 .text {
   padding: 0px 20px 20px 20px;
-  font-size: 1.414vw;
+  font-size: 1.414em;
   font-kerning: auto;
   line-height: 100%;
-  font-family: 'EB Garamond',serif; }
+  font-family: 'EB Garamond',serif;
+  color: #2B2D3B; }
+  @media only screen and (max-width: 767px) {
+    .text {
+      font-size: 1.1em; } }
 
-.test {
-  background-color: #ABB9D3;
-  border: 1px solid;
-  border-color: black;
-  color: white; }
+/*.test {
+    background-color:#ABB9D3;
+    border: 1px solid;
+    border-color: black;
+    color:white;
+}*/

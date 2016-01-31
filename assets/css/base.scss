@@ -25,6 +25,30 @@ $tertiary-light-grey: #D8DBE2;
     font-family: 'abel';
     src:url(../../fonts/Abel-Regular.ttf) format('truetype');
 }
+/* Breakpoints */
+@mixin bp-large {
+  @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @media only screen and (max-width: 1199px){
+    @content;
+  }
+}
+
+@mixin bp-small {
+  @media only screen and (max-width: 991px){
+    @content;
+  }
+}
+@mixin bp-xsmall {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+/* end of breakpoints */
 
 html, body {
     width: 100%;
@@ -91,7 +115,7 @@ input::-moz-focus-inner {
     @include display("flex");
     @include flex-direction("row");
     //@include justify-content("flex-start");
-    @include align-content("flex-start");
+    //@include align-content("flex-start");
     overflow: hidden;
 }
 .flex-child-row {
@@ -104,38 +128,45 @@ input::-moz-focus-inner {
 .header {
     @extend .zero-margin;
     font-family:'agenda',sans-serif;
-    font-size:7.993vw;
+    font-size:7.993em;
     font-kerning: auto;
     line-height:130%;
     padding-bottom:5px;
+    color: $tertiary-blue-grey-variant;
 }
 .sub-header {
     @extend .zero-margin;
     font-family:'abel',sans-serif;
-    font-size:5.653vw;
+    font-size:5.653em;
     font-kerning:auto;
     line-height:125%;
     padding-bottom:5px;
+    color: $tertiary-blue-grey-variant;
 }
 .sub-sub-header {
     @extend .zero-margin;
-    font-size:3.998vw;
+    font-size:3.998em;
     font-kerning:auto;
     line-height:120%;
     padding-bottom:5px;
     font-family:'abel',sans-serif;
+    color: $tertiary-blue-grey-variant;
 }
 .text {
     @extend .zero-margin;
+    @include bp-xsmall {
+        font-size: 1.1em;
+    }
     padding: 0px 20px 20px 20px;
-    font-size:1.414vw;
+    font-size:1.414em;
     font-kerning:auto;
     line-height:100%;
     font-family:'EB Garamond',serif;
+    color: $tertiary-blue-grey-variant;
 }
-.test {
+/*.test {
     background-color:#ABB9D3;
     border: 1px solid;
     border-color: black;
     color:white;
-}
+}*/

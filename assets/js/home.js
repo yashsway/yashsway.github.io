@@ -1,14 +1,20 @@
-function sections(){
-    //Header section stuff
-    $("#header-brand").css("margin-top",parseFloat($("#header-brand").parent().css("max-height"))*0.32);
-    $(".inherit-max-immediate").css("height",parseFloat($(".inherit-max-immediate").parent().css("height")));
+function insertText() {
+    $.ajax({
+        async: true,
+        url: 'assets/text/experience.txt',
+        dataType: 'text',
+        success: function (data) {
+            $('#txt-exp').append(data);
+        }
+    });
 }
-function responsiveFixes(){
-    //sections();
-}
+
+function responsiveFixes() {}
+
 //onload stuff
-$(document).ready(function(){
-   /* $(window).on('resize',function(){
-        responsiveFixes();
-    });*/
+$(document).ready(function () {
+    insertText();
+    /* $(window).on('resize',function(){
+         responsiveFixes();
+     });*/
 });

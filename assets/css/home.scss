@@ -1,12 +1,13 @@
 @import 'base.scss';
-
 body {
-    background-color:#E1F7F7;
+    background-color: #E1F7F7;
 }
+
 .home-section {
     display: block;
     box-sizing: border-box;
 }
+
 .stretch {
     height: 100%;
 }
@@ -17,26 +18,27 @@ body {
 }*/
 
 .adjust-pgphs {
-    margin-top:1px;
-    margin-bottom:1px;
+    margin-top: 1px;
+    margin-bottom: 1px;
 }
+
 .cubes {
     @include border-top-radius(20px);
     @include border-right-radius(20px);
     @include border-bottom-radius(20px);
     @include border-left-radius(20px);
-    height:75px;
-    width:75px;
-    border-bottom:3px solid #2B2D42;
-    margin:5px;
-    display:inline-block;
-    color:#fff;
+    height: 75px;
+    width: 75px;
+    border-bottom: 3px solid #2B2D42;
+    margin: 5px;
+    display: inline-block;
+    color: #fff;
 }
 
 #home-title {
     @include border-style(null null solid);
     @include border-color(null null #FE5F55 null);
-    @include border-width(0px 0px 5px 0px);
+    @include border-width(null null 5px null);
     position: static;
     //display: inline-block;
     font-size: 14.552vw;
@@ -44,13 +46,16 @@ body {
     padding-bottom: 0px;
     color: $primary-contrast-color;
 }
+
 #main-wrapper {
     height: 100%;
 }
+
 .wrapper {
     height: auto;
     width: auto;
 }
+
 #accent-header {
     position: fixed;
     z-index: 2;
@@ -59,12 +64,14 @@ body {
     top: -2px;
     background-color: $secondary-color;
 }
+
 #header-section {
-    @include background(linear-gradient(left, rgba(250,255,255,0.5) 10%,rgba(250,255,255,0.5) 90%),url("../../media/images/workdesk-min.jpeg"));
+    @include background(linear-gradient(left, rgba(250, 255, 255, 0.5) 10%, rgba(250, 255, 255, 0.5) 90%), url("../../media/images/workdesk-min.jpeg"));
     height: 100vh;
     background-position: 50% 85%;
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     color: white;
     #one {
         @include flex(1 1 10%);
@@ -136,7 +143,7 @@ body {
 }
 
 #samples-section {
-    background-color:#3F325D;
+    background-color: #3F325D;
     .section-header {
         color: white;
     }
@@ -151,9 +158,39 @@ body {
 #experience-section {
     #one {
         @include flex(1 1 20%);
-        color: $tertiary-blue-grey-variant;
+    }
+    #two {
+        @include align-items(center);
+        @include flex(1 1 20%);
+    }
+    #three {
+        @include flex(1 1 60%);
+        > div {
+            @include bp-small {
+                @include flex-wrap(wrap);
+            }
+        }
+        #one {
+            @include bp-small {
+                @include flex-basis(100%);
+            }
+            @include flex(0 1 60%);
+            @include order(1);
+            padding: 10px;
+        }
+        #two {
+            @include flex(1 1 40%);
+            @include order(2);
+            padding: 10px;
+        }
     }
 }
+
+#txt-exp {
+    text-align: justify;
+    line-height: 35px;
+}
+
 #footer-section {
     min-height: none;
     height: auto;
@@ -175,18 +212,19 @@ body {
 
 .section-header {
     font-family: 'agenda', sans-serif;
-    font-size: 5.96vw;
+    font-size: 5.96em;
     padding: 20px;
     text-decoration: none;
 }
+
 .picture-card {
     @include border-width(8px);
     @include border-style(solid);
     @include border-color(#DEE2E5);
-    @include border-top-radius(0.25rem);
-    @include border-right-radius(0.25rem);
-    @include border-bottom-radius(0.25rem);
-    @include border-left-radius(0.25rem);
+    @include border-top-radius(0.25em);
+    @include border-right-radius(0.25em);
+    @include border-bottom-radius(0.25em);
+    @include border-left-radius(0.25em);
     height: 250px;
     width: 420px;
     background-color: #F7FCFF;
@@ -194,15 +232,33 @@ body {
     background-position: center;
     background-size: cover;
 }
+
+.quote-card {
+    box-sizing: border-box;
+    @include border-width(0px 0px 8px 0px);
+    @include border-style(solid);
+    @include border-color($tertiary-blue-grey-variant);
+    @include border-bottom-radius(0.25rem);
+    @include border-left-radius(0.25rem);
+    box-shadow: 2px 2px 7px rgba(27, 27, 30, 0.3);
+    background-color: rgba(255, 255, 199, 0.3);
+    height: auto;
+    width: auto;
+    line-height: 40px;
+    margin: 10px 0px;
+    display: block;
+}
+
 .top-margin {
     margin-top: 20px;
 }
+
 #hook-section {
     max-height: none;
     .text {
         line-height: 180%;
     }
-    #one{
+    #one {
         height: 20%;
         color: $tertiary-blue-grey-variant;
     }
@@ -237,6 +293,7 @@ body {
 
 #project-gallery {
     @include justify-content("center");
+    @include align-items("center");
     margin: 0px 10px;
     .flex-child-row {
         margin: 10px 15px;
@@ -258,6 +315,7 @@ body {
     letter-spacing: 2px;
     box-shadow: 0px 0.5px 5px #1B1B1E;
 }
+
 .tool-badge-more {
     background-color: $tertiary-dark-grey;
     color: $tertiary-light-grey;
@@ -294,6 +352,13 @@ body {
 #indev {
     background-image: url(../../media/images/indev.jpg);
 }
-#cool {
-    margin: 0px auto;
+
+#companies {
+    @include bp-xsmall {
+        height: 20px;
+        width: 20px;
+    }
+    > img {
+        margin: 10px 15px;
+    }
 }
