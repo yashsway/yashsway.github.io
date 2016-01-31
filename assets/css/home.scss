@@ -7,9 +7,8 @@ body {
 .home-section {
     box-sizing: border-box;
 }
-.block {
-    box-sizing: border-box;
-    height: inherit;
+.stretch {
+    height: 100%;
 }
 /*.block-preserve {
     @extend .block;
@@ -69,16 +68,16 @@ body {
     background-repeat: no-repeat;
     color: white;
     #one {
-        @include flex(1 1 10%);
+        @include flex(1 0 10%);
     }
     #two {
-        @include flex(1 1 10%);
+        @include flex(1 0 10%);
     }
     #push:nth-of-type(n) {
-        @include flex(1 1 36%);
+        @include flex(1 0 36%);
     }
     #push:nth-of-type(2n) {
-        @include flex(1 1 44%);
+        @include flex(1 0 44%);
     }
     .flex-parent-column {
         @include justify-content("center");
@@ -146,10 +145,10 @@ body {
         color: white;
     }
     #one {
-        @include flex(1 1 20%);
+        @include flex(1 0 20%);
     }
     #two {
-        @include flex(1 1 80%);
+        @include flex(1 0 80%);
     }
 }
 
@@ -167,14 +166,14 @@ body {
         color: white;
     }
     #one {
-        @include flex(1 1 30%);
+        @include flex(1 0 30%);
         font-size: 80%;
     }
     #two {
-        @include flex(1 1 50%);
+        @include flex(1 0 50%);
     }
     #three {
-        @include flex(1 1 20%);
+        @include flex(1 0 20%);
     }
 }
 

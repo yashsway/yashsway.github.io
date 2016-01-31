@@ -158,9 +158,8 @@ body {
 .home-section {
   box-sizing: border-box; }
 
-.block {
-  box-sizing: border-box;
-  height: inherit; }
+.stretch {
+  height: 100%; }
 
 /*.block-preserve {
     @extend .block;
@@ -225,34 +224,34 @@ body {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     box-flex: 1;
-    -webkit-flex: 1 1 10%;
-    -moz-flex: 1 1 10%;
-    -ms-flex: 1 1 10%;
-    flex: 1 1 10%; }
+    -webkit-flex: 1 0 10%;
+    -moz-flex: 1 0 10%;
+    -ms-flex: 1 0 10%;
+    flex: 1 0 10%; }
   #header-section #two {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     box-flex: 1;
-    -webkit-flex: 1 1 10%;
-    -moz-flex: 1 1 10%;
-    -ms-flex: 1 1 10%;
-    flex: 1 1 10%; }
+    -webkit-flex: 1 0 10%;
+    -moz-flex: 1 0 10%;
+    -ms-flex: 1 0 10%;
+    flex: 1 0 10%; }
   #header-section #push:nth-of-type(n) {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     box-flex: 1;
-    -webkit-flex: 1 1 36%;
-    -moz-flex: 1 1 36%;
-    -ms-flex: 1 1 36%;
-    flex: 1 1 36%; }
+    -webkit-flex: 1 0 36%;
+    -moz-flex: 1 0 36%;
+    -ms-flex: 1 0 36%;
+    flex: 1 0 36%; }
   #header-section #push:nth-of-type(2n) {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     box-flex: 1;
-    -webkit-flex: 1 1 44%;
-    -moz-flex: 1 1 44%;
-    -ms-flex: 1 1 44%;
-    flex: 1 1 44%; }
+    -webkit-flex: 1 0 44%;
+    -moz-flex: 1 0 44%;
+    -ms-flex: 1 0 44%;
+    flex: 1 0 44%; }
   #header-section .flex-parent-column {
     -webkit-box-pack: "center";
     -moz-box-pack: "center";
@@ -323,18 +322,18 @@ body {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     box-flex: 1;
-    -webkit-flex: 1 1 20%;
-    -moz-flex: 1 1 20%;
-    -ms-flex: 1 1 20%;
-    flex: 1 1 20%; }
+    -webkit-flex: 1 0 20%;
+    -moz-flex: 1 0 20%;
+    -ms-flex: 1 0 20%;
+    flex: 1 0 20%; }
   #samples-section #two {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     box-flex: 1;
-    -webkit-flex: 1 1 80%;
-    -moz-flex: 1 1 80%;
-    -ms-flex: 1 1 80%;
-    flex: 1 1 80%; }
+    -webkit-flex: 1 0 80%;
+    -moz-flex: 1 0 80%;
+    -ms-flex: 1 0 80%;
+    flex: 1 0 80%; }
 
 #experience-section #one {
   -webkit-box-flex: 1;
@@ -356,27 +355,27 @@ body {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     box-flex: 1;
-    -webkit-flex: 1 1 30%;
-    -moz-flex: 1 1 30%;
-    -ms-flex: 1 1 30%;
-    flex: 1 1 30%;
+    -webkit-flex: 1 0 30%;
+    -moz-flex: 1 0 30%;
+    -ms-flex: 1 0 30%;
+    flex: 1 0 30%;
     font-size: 80%; }
   #footer-section #two {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     box-flex: 1;
-    -webkit-flex: 1 1 50%;
-    -moz-flex: 1 1 50%;
-    -ms-flex: 1 1 50%;
-    flex: 1 1 50%; }
+    -webkit-flex: 1 0 50%;
+    -moz-flex: 1 0 50%;
+    -ms-flex: 1 0 50%;
+    flex: 1 0 50%; }
   #footer-section #three {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     box-flex: 1;
-    -webkit-flex: 1 1 20%;
-    -moz-flex: 1 1 20%;
-    -ms-flex: 1 1 20%;
-    flex: 1 1 20%; }
+    -webkit-flex: 1 0 20%;
+    -moz-flex: 1 0 20%;
+    -ms-flex: 1 0 20%;
+    flex: 1 0 20%; }
 
 .section-header {
   font-family: 'agenda', sans-serif;
