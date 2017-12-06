@@ -276,8 +276,8 @@ body {
     -ms-flex-pack: "center"; }
 
 #circleLoader {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   position: absolute;
   z-index: -2; }
   #circleLoader circle {
@@ -471,7 +471,8 @@ body {
     -webkit-flex: 1 0 50%;
     -moz-flex: 1 0 50%;
     -ms-flex: 1 0 50%;
-    flex: 1 0 50%; }
+    flex: 1 0 50%;
+    align-self: center; }
   #footer-section #four {
     padding-bottom: 20px;
     -webkit-box-flex: 1;
