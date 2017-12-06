@@ -130,6 +130,9 @@ input::-moz-focus-inner {
   line-height: 130%;
   padding-bottom: 5px;
   color: #2B2D3B; }
+  @media only screen and (max-width: 991px) {
+    .header {
+      font-size: 5.993em; } }
 
 .sub-header {
   font-family: 'abel', sans-serif;
@@ -138,6 +141,9 @@ input::-moz-focus-inner {
   line-height: 125%;
   padding-bottom: 5px;
   color: #2B2D3B; }
+  @media only screen and (max-width: 991px) {
+    .sub-header {
+      font-size: 2.653em; } }
 
 .sub-sub-header {
   font-size: 3.998em;
@@ -146,6 +152,9 @@ input::-moz-focus-inner {
   padding-bottom: 5px;
   font-family: 'abel', sans-serif;
   color: #2B2D3B; }
+  @media only screen and (max-width: 991px) {
+    .sub-sub-header {
+      font-size: 1.998em; } }
 
 .text {
   font-size: 1.414em;
@@ -431,7 +440,6 @@ body {
   line-height: 40px; }
 
 #footer-section {
-  min-height: none;
   height: auto;
   background-color: #2B2D3B; }
   #footer-section .section-header {
@@ -447,6 +455,7 @@ body {
     font-size: 80%; }
   #footer-section #two {
     color: white;
+    text-align: center;
     font-size: 1.5em;
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
@@ -478,6 +487,9 @@ body {
   font-size: 5.96em;
   padding: 20px;
   text-decoration: none; }
+  @media only screen and (max-width: 991px) {
+    .section-header {
+      font-size: 3.96em; } }
 
 .picture-card {
   box-sizing: border-box;
@@ -492,8 +504,10 @@ body {
   border-bottom-right-radius: 0.25em;
   border-bottom-left-radius: 0.25em;
   border-top-left-radius: 0.25em;
-  height: 250px;
-  width: 420px;
+  max-height: 250px;
+  min-height: 200px;
+  max-width: 420px;
+  min-width: 300px;
   background-color: #F7FCFF;
   background-position: center;
   background-size: cover; }
@@ -530,18 +544,15 @@ body {
     height: 80%; }
 
 #author {
-  -webkit-transform: translateY(25%);
-  -moz-transform: translateY(25%);
-  -ms-transform: translateY(25%);
-  -o-transform: translateY(25%);
-  transform: translateY(25%);
-  position: static;
   font-family: 'agenda', sans-serif;
   font-size: 3.2em;
   padding: 10px;
   left: 40%;
   text-decoration: none;
   color: #FE5F55; }
+  @media only screen and (max-width: 991px) {
+    #author {
+      font-size: 1.2em; } }
 
 #social-links {
   -webkit-box-flex: 1;

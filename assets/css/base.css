@@ -130,6 +130,9 @@ input::-moz-focus-inner {
   line-height: 130%;
   padding-bottom: 5px;
   color: #2B2D3B; }
+  @media only screen and (max-width: 991px) {
+    .header {
+      font-size: 5.993em; } }
 
 .sub-header {
   font-family: 'abel', sans-serif;
@@ -138,6 +141,9 @@ input::-moz-focus-inner {
   line-height: 125%;
   padding-bottom: 5px;
   color: #2B2D3B; }
+  @media only screen and (max-width: 991px) {
+    .sub-header {
+      font-size: 2.653em; } }
 
 .sub-sub-header {
   font-size: 3.998em;
@@ -146,6 +152,9 @@ input::-moz-focus-inner {
   padding-bottom: 5px;
   font-family: 'abel', sans-serif;
   color: #2B2D3B; }
+  @media only screen and (max-width: 991px) {
+    .sub-sub-header {
+      font-size: 1.998em; } }
 
 .text {
   font-size: 1.414em;
@@ -161,6 +170,6 @@ input::-moz-focus-inner {
 .reading {
   max-width: 80vw;
   align-self: center;
-  padding: 20px 0px; }
+  padding: 20px 10px; }
 
 /*# sourceMappingURL=base.css.map */
