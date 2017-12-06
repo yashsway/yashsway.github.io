@@ -9,7 +9,8 @@
   src: url(../../fonts/Abel-Regular.ttf) format("truetype"); }
 /* Breakpoints */
 /* end of breakpoints */
-html, body {
+html,
+body {
   width: 100%;
   overflow-x: hidden; }
 
@@ -118,9 +119,12 @@ input::-moz-focus-inner {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap; }
 
+.flex-parent-center {
+  justify-content: center; }
+
 /* end of flexbox */
 .header {
-  font-family: 'agenda',sans-serif;
+  font-family: 'agenda', sans-serif;
   font-size: 7.993em;
   font-kerning: auto;
   line-height: 130%;
@@ -128,7 +132,7 @@ input::-moz-focus-inner {
   color: #2B2D3B; }
 
 .sub-header {
-  font-family: 'abel',sans-serif;
+  font-family: 'abel', sans-serif;
   font-size: 5.653em;
   font-kerning: auto;
   line-height: 125%;
@@ -140,23 +144,23 @@ input::-moz-focus-inner {
   font-kerning: auto;
   line-height: 120%;
   padding-bottom: 5px;
-  font-family: 'abel',sans-serif;
+  font-family: 'abel', sans-serif;
   color: #2B2D3B; }
 
 .text {
-  padding: 0px 20px 20px 20px;
   font-size: 1.414em;
   font-kerning: auto;
-  line-height: 100%;
-  font-family: 'EB Garamond',serif;
+  line-height: 35px;
+  font-family: 'EB Garamond', serif;
   color: #2B2D3B; }
   @media only screen and (max-width: 767px) {
     .text {
       font-size: 1.1em; } }
 
-/*.test {
-    background-color:#ABB9D3;
-    border: 1px solid;
-    border-color: black;
-    color:white;
-}*/
+/* Misc */
+.reading {
+  max-width: 80vw;
+  align-self: center;
+  padding: 20px 0px; }
+
+/*# sourceMappingURL=work.css.map */

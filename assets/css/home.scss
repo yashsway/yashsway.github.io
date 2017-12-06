@@ -1,9 +1,10 @@
 @import 'base.scss';
 body {
-    background-color: #E1F7F7;
+    font-family: 'abel', sans-serif;
 }
 
 .home-section {
+    background-color: $tertiary-light-grey;
     display: block;
     box-sizing: border-box;
 }
@@ -11,11 +12,6 @@ body {
 .stretch {
     height: 100%;
 }
-/*.block-preserve {
-    @extend .block;
-    @include transform-style(preserve-3d);
-    position: relative;
-}*/
 
 .adjust-pgphs {
     margin-top: 1px;
@@ -36,11 +32,7 @@ body {
 }
 
 #home-title {
-    @include border-style(null null solid);
-    @include border-color(null null #FE5F55 null);
-    @include border-width(null null 5px null);
     position: static;
-    //display: inline-block;
     font-size: 14.552vw;
     line-height: 85%;
     padding-bottom: 0px;
@@ -66,7 +58,6 @@ body {
 }
 
 #header-section {
-    @include background(linear-gradient(left, rgba(250, 255, 255, 0.5) 10%, rgba(250, 255, 255, 0.5) 90%), url("../../media/images/workdesk-min.jpeg"));
     height: 100vh;
     background-position: 50% 85%;
     background-size: cover;
@@ -90,6 +81,17 @@ body {
     }
 }
 
+#circleLoader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -2;
+    circle {
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+    }
+}
+
 #home-designation {
     position: static;
     display: block;
@@ -105,7 +107,7 @@ body {
 
 .navigation {
     right: 0px;
-    > li {
+    >li {
         @include margin(0px 3px);
         display: inline-block;
         list-style: none;
@@ -122,7 +124,7 @@ body {
         width: 120px;
         vertical-align: middle;
         line-height: 40px;
-        font-size: 1.2vw;
+        font-size: 1.2em;
         background-color: #FE5F55;
         text-transform: uppercase;
         text-decoration: none;
@@ -165,7 +167,7 @@ body {
     }
     #three {
         @include flex(1 1 60%);
-        > div {
+        >div {
             @include bp-small {
                 @include flex-wrap(wrap);
             }
@@ -188,7 +190,7 @@ body {
 
 #txt-exp {
     text-align: justify;
-    line-height: 35px;
+    line-height: 40px;
 }
 
 #footer-section {
@@ -203,9 +205,15 @@ body {
         font-size: 80%;
     }
     #two {
+        color: white;
+        font-size: 1.5em;
         @include flex(1 0 50%);
     }
     #three {
+        @include flex(1 0 50%);
+    }
+    #four {
+        padding-bottom: 20px;
         @include flex(1 0 20%);
     }
 }
@@ -218,7 +226,8 @@ body {
 }
 
 .picture-card {
-    @include border-width(8px);
+    box-sizing: border-box;
+    @include border-width(8px 8px 18px 8px);
     @include border-style(solid);
     @include border-color(#DEE2E5);
     @include border-top-radius(0.25em);
@@ -228,7 +237,6 @@ body {
     height: 250px;
     width: 420px;
     background-color: #F7FCFF;
-    border-bottom: 18px #DEE2E5 solid;
     background-position: center;
     background-size: cover;
 }
@@ -240,13 +248,14 @@ body {
     @include border-color($tertiary-blue-grey-variant);
     @include border-bottom-radius(0.25rem);
     @include border-left-radius(0.25rem);
+    display: block;
+    margin-bottom: 30px;
+    padding: 20px;
     box-shadow: 2px 2px 7px rgba(27, 27, 30, 0.3);
     background-color: rgba(255, 255, 199, 0.3);
     height: auto;
     width: auto;
     line-height: 40px;
-    margin: 10px 0px;
-    display: block;
 }
 
 .top-margin {
@@ -271,7 +280,7 @@ body {
     @include transform(translateY(25%));
     position: static;
     font-family: 'agenda', sans-serif;
-    font-size: 3.2vw;
+    font-size: 3.2em;
     padding: 10px;
     left: 40%;
     text-decoration: none;
@@ -358,7 +367,7 @@ body {
         height: 20px;
         width: 20px;
     }
-    > img {
+    >img {
         margin: 10px 15px;
     }
 }
