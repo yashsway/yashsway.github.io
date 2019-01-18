@@ -1,0 +1,16 @@
+# editor
+.vscode
+.editorconfig
+.idea
+.settings
+
+# compiled
+dist/
+tmp/
+
+# packages
+node_modules/
+
+# system
+.DS_Store
+Thumbs.db
