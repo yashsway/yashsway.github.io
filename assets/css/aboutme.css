@@ -55,17 +55,13 @@ input::-moz-focus-inner {
   display: -webkit-box;
   display: -moz-box;
   display: box;
-  display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
   box-orient: vertical;
   -webkit-box-direction: normal;
-  -moz-box-direction: normal;
   box-direction: normal;
-  -webkit-flex-direction: column;
   -moz-flex-direction: column;
   flex-direction: column;
   -ms-flex-direction: column;
@@ -73,9 +69,7 @@ input::-moz-focus-inner {
 
 .flex-child-column {
   -webkit-box-flex: 1;
-  -moz-box-flex: 1;
   box-flex: 1;
-  -webkit-flex: 1 0 auto;
   -moz-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
@@ -85,27 +79,28 @@ input::-moz-focus-inner {
   display: -webkit-box;
   display: -moz-box;
   display: box;
-  display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
-  -moz-box-orient: horizontal;
   box-orient: horizontal;
   -webkit-box-direction: normal;
-  -moz-box-direction: normal;
   box-direction: normal;
-  -webkit-flex-direction: "row";
-  -moz-flex-direction: "row";
-  flex-direction: "row";
-  -ms-flex-direction: "row";
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-pack: center;
+  box-pack: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
   overflow: hidden; }
 
 .flex-child-row {
   -webkit-box-flex: 1;
-  -moz-box-flex: 1;
   box-flex: 1;
-  -webkit-flex: 1 1 auto;
   -moz-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto; }
@@ -114,19 +109,20 @@ input::-moz-focus-inner {
   -webkit-box-lines: multiple;
   -moz-box-lines: multiple;
   box-lines: multiple;
-  -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap; }
 
 .flex-parent-center {
-  justify-content: center; }
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
 
 /* end of flexbox */
 .header {
   font-family: 'agenda', sans-serif;
   font-size: 7.993em;
-  font-kerning: auto;
+  -webkit-font-kerning: auto;
+          font-kerning: auto;
   line-height: 130%;
   padding-bottom: 5px;
   color: #2B2D3B; }
@@ -137,7 +133,8 @@ input::-moz-focus-inner {
 .sub-header {
   font-family: 'abel', sans-serif;
   font-size: 5.653em;
-  font-kerning: auto;
+  -webkit-font-kerning: auto;
+          font-kerning: auto;
   line-height: 125%;
   padding-bottom: 5px;
   color: #2B2D3B; }
@@ -147,7 +144,8 @@ input::-moz-focus-inner {
 
 .sub-sub-header {
   font-size: 3.998em;
-  font-kerning: auto;
+  -webkit-font-kerning: auto;
+          font-kerning: auto;
   line-height: 120%;
   padding-bottom: 5px;
   font-family: 'abel', sans-serif;
@@ -158,7 +156,8 @@ input::-moz-focus-inner {
 
 .text {
   font-size: 1.414em;
-  font-kerning: auto;
+  -webkit-font-kerning: auto;
+          font-kerning: auto;
   line-height: 35px;
   font-family: 'EB Garamond', serif;
   color: #2B2D3B; }
@@ -169,7 +168,6 @@ input::-moz-focus-inner {
 /* Misc */
 .reading {
   max-width: 80vw;
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
   padding: 20px 10px; }
-
-/*# sourceMappingURL=aboutme.css.map */

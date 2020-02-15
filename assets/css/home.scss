@@ -4,9 +4,17 @@ body {
 }
 
 .home-section {
-    background-color: $tertiary-light-grey;
-    display: block;
-    box-sizing: border-box;
+  background-color: $tertiary-light-grey;
+  display: block;
+  box-sizing: border-box;
+
+  &__social-links {
+    @include flex(1 1 100%);
+    position: static;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
 }
 
 .stretch {
@@ -292,12 +300,6 @@ body {
     @include bp-small {
         font-size: 1.2em;
     }
-}
-
-#social-links {
-    @include flex(1 1 100%);
-    //@include transform(translateY(20%));
-    position: static;
 }
 
 .contact-icons {

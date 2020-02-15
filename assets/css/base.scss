@@ -144,10 +144,9 @@ input::-moz-focus-inner {
 }
 
 .flex-parent-row {
-    @include display("flex");
-    @include flex-direction("row");
-    //@include justify-content("flex-start");
-    //@include align-content("flex-start");
+    @include display(flex);
+    @include flex-direction(row);
+    @include justify-content(center);
     overflow: hidden;
 }
 
