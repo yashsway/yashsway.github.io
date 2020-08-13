@@ -127,10 +127,14 @@ export class PaintCircles {
         snapSvgInstance.animate({
           opacity: 0
         }, 15000, mina.easeInOut, () => {
-          //Remove SVG circle from DOM
-          document.querySelector('#' + snapSvgInstance.attr('id')).remove();
-          //Remove SVG circle from storage
-          this.allCircles.splice(this.allCircles.indexOf(this), 1);
+          // remove from DOM
+          let domInstance = document.querySelector('#' + snapSvgInstance.attr('id'));
+
+          if (domInstance) {
+            domInstance.remove();
+          }
+          // remove from storage
+          this.allCircles.splice(this.allCircles.indexOf(snapSvgInstance), 1);
         });
     });
   }
