@@ -2,21 +2,6 @@ import {shuffleArray} from '../utilities/shuffles.js';
 
 // used for the splash animation. Inspired by Spotify's year in rewind event sites.
 export class PaintCircles {
-  // usually caps around twice the interval
-  allCircles = [];
-  circleCount = 0;
-  colorArray = [];
-  colorCount = 0;
-  generatedColors;
-  templateSvgEl;
-  generationInterval;
-  options = {
-    idPrefix: 'circle',
-    generationIntervalInMs: 3000,
-    generationIntervalCircleCount: 1,
-    maxColorSequence: 6,
-  };
-
   /**
    * @param {object} templateSvgEl must be a valid Snap svg instance
    * @param {array<string>} randomColors array of random color HEXs
@@ -25,7 +10,28 @@ export class PaintCircles {
   constructor(templateSvgEl, randomColors, options) {
     this.templateSvgEl = templateSvgEl;
     this.generatedColors = randomColors;
+    this.allCircles = [];
+    this.circleCount = 0;
+    this.colorArray = [];
+    this.colorCount = 0;
+    this.options = {
+      idPrefix: 'circle',
+      generationIntervalInMs: 4000,
+      generationIntervalCircleCount: 1,
+      maxColorSequence: 6,
+    };
     this.options = Object.assign(this.options, options);
+    
+    if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support 
+      this.hidden = "hidden";
+      this.visibilityChange = "visibilitychange";
+    } else if (typeof document.msHidden !== "undefined") {
+      this.hidden = "msHidden";
+      this.visibilityChange = "msvisibilitychange";
+    } else if (typeof document.webkitHidden !== "undefined") {
+      this.hidden = "webkitHidden";
+      this.visibilityChange = "webkitvisibilitychange";
+    }
 
     this.setup();
   }
@@ -34,6 +40,7 @@ export class PaintCircles {
     this.colorArray = this.colorArray.concat(this.generatedColors);
     this.colorArray = shuffleArray(this.colorArray);
     this.startGenerationClock(this.options.generationIntervalCircleCount, this.options.generationIntervalInMs);
+    this.bindWindowFocusSwitch();
   }
 
   teardown() {
@@ -52,8 +59,21 @@ export class PaintCircles {
 
   bindWindowFocusSwitch() {
     // keep track of whether the browser tab or window is in focus. If not, pause animations and other background js processes for performance
-    window.addEventListener('focus', this.startGenerationClock);
-    window.addEventListener('blur', this.stopGenerationClock);
+    window.addEventListener('focus', this.startGenerationClock.bind(this));
+    window.addEventListener('blur', () => {
+      this.clean();
+      this.stopGenerationClock();
+    });
+
+    // NOTE: visiblity change API is currently buggy on Safari
+    window.addEventListener(this.visibilityChange, () => {
+      if (document[this.hidden] || document.visibilityState === 'hidden') {
+        this.clean();
+        this.stopGenerationClock(); 
+      } else {
+        this.startGenerationClock();
+      }
+    });
   }
 
   /**
@@ -73,14 +93,19 @@ export class PaintCircles {
     this.allCircles = this.allCircles.filter(circleEl => {
       let id = circleEl.attr('id');
 
-      if (typeof id !== 'undefined' && id === svgID) {
+      if (typeof id !== 'undefined' && (typeof svgID === 'undefined' || id === svgID)) {
         //Remove SVG from DOM
-        document.querySelector('#' + circleEl.attr('id')).remove();
+        document.querySelector('#' + id).remove();
         return false;
       } else {
         return true;
       }
     });
+
+    if (this.allCircles.length === 0) {
+      this.circleCount = 0;
+      this.colorCount = 0;
+    }
   }
 
   /**
@@ -98,12 +123,12 @@ export class PaintCircles {
     () => {
         //Fade to 0 opacity after scale is complete
         snapSvgInstance.animate({
-            opacity: 0
+          opacity: 0
         }, 15000, mina.easeInOut, () => {
-            //Remove SVG circle from DOM
-            document.querySelector('#' + snapSvgInstance.attr('id')).remove();
-            //Remove SVG circle from storage
-            this.allCircles.splice(this.allCircles.indexOf(this), 1);
+          //Remove SVG circle from DOM
+          document.querySelector('#' + snapSvgInstance.attr('id')).remove();
+          //Remove SVG circle from storage
+          this.allCircles.splice(this.allCircles.indexOf(this), 1);
         });
     });
   }
@@ -151,11 +176,11 @@ export class PaintCircles {
       let uniqueID = this.generateID();
       
       this.storeCircle(
-          (this.templateSvgEl.circle(x, y, 1)).attr({
-              fill: this.sequentialRandomColor(this.options.maxColorSequence),
-              id: uniqueID
-          }),
-          uniqueID
+        (this.templateSvgEl.circle(x, y, 1)).attr({
+            fill: this.sequentialRandomColor(this.options.maxColorSequence),
+            id: uniqueID
+        }),
+        uniqueID
       );
     }
   }
