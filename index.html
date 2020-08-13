@@ -3,38 +3,39 @@
 <head>
     <meta charset="utf-8">
     <title>Yash Kadaru</title>
-    <meta name="description" content="Software Engineer & Designer making awesome tech @ Konrad Group. McMaster Alumni. Board game enthusiast and environment advocate.">
+    <meta name="description" content="Software Engineer & Designer making beautiful software at Konrad Group and BrainStation. McMaster Alumni. Board game enthusiast and environment advocate.">
     <meta name="author" content="Yash (Yasaswi) Kadaru">
     <link rel="icon" href="media/icons/favicon.jpg" type="image/jpeg">
     <link rel="icon" sizes="256x256" href="media/icons/webclip.jpg" type="image/jpeg">
-    <!--Facebook Open Graph-->
+    <!-- open graph -->
     <meta property="og:title" content="Yash Kadaru | Software Engineer and Designer | Toronto, Canada">
-    <meta property="og:image" content="LINK_TO_IMAGE">
-    <meta property="og:description" content="Personal site and portfolio of Yash Kadaru. Software engineer & designer, passionate about great user experience.">
-    <!--Twitter Card-->
+    <meta property="og:image" content="media/images/og-share.jpg">
+    <meta property="og:image:alt" content="Yash Kadaru | Software Engineer and Designer | You can reach me at hello@yashkadaru.com">
+    <meta property="og:description" content="Personal site and portfolio of Yash Kadaru. Software Engineer & Designer, passionate about beautiful software and code.">
+    <!-- twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:creator" content="@YashsWay">
     <meta name="twitter:title" content="Yash Kadaru | Software Engineer and Designer">
-    <meta name="twitter:description" content="Personal site and portfolio of Yash Kadaru. Software engineer & designer, passionate about great user experience.">
-    <!-- 280px width 150px height less than 1MB   -->
-    <meta name="twitter:image" content="LINK_TO_IMAGE">
+    <meta name="twitter:description" content="Personal site and portfolio of Yash Kadaru. Software Engineer & Designer, passionate about beautiful software and code.">
+    <meta name="twitter:image" content="media/images/og-share.jpg">
     <!--mobile viewport optimization-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Normalize css-->
+    <!-- normalization -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
-    <!--External Fonts-->
+    <!-- external fonts, establish preconnection for dns caching -->
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700|EB+Garamond|Raleway:500,600|Oswald' rel='stylesheet' type='text/css'>
-    <!--Font Awesome-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <!--Custom CSS-->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700|EB+Garamond|Raleway:500,600|Oswald' rel="stylesheet" type="text/css">
+    <!-- my CSS -->
     <link rel="stylesheet" href="assets/css/home.css">
+    <!-- dns prefetching for critical external deps -->
+    <link rel="dns-prefetch" href="https://code.jquery.com/">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/">
 </head>
 
 <body>
     <!-- NOTE: in the process of refactoring this insanely old website...-->
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" id="circleLoader"></svg>
-    <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no; target-densityDpi=device-dpi">
     <main id="main-wrapper">
         <div id="header-section">
             <div class="flex-parent-column stretch">
@@ -199,13 +200,10 @@
         </div>
     </main>
     <!-- scripts -->
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js" type="type/javascript"></script>
-    <!-- snapsvg-->
+    <!-- snapsvg -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js" type="application/javascript"></script>
-    <!-- randomColor-->
+    <!-- randomColor -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.4.4/randomColor.min.js" type="application/javascript"></script>
-    <script src="assets/js/home.js" type="text/javascript"></script>
+    <script src="assets/js/home.js" type="module"></script>
 </body>
-
 </html>
