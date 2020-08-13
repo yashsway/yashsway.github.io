@@ -49,7 +49,9 @@ export class PaintCircles {
   }
 
   startGenerationClock(numCirclesToGenerate = 1, interval = 3000) {
-    //Start generating circles every 3 seconds.
+    // generate one circle immediately
+    this.generateRandomCircles(numCirclesToGenerate);
+    // start generating circles every interval
     this.generationInterval = setInterval(() => this.generateRandomCircles(numCirclesToGenerate), interval);
   }
 
