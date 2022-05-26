@@ -1,19 +1,28 @@
 import {shuffleArray} from '../utilities/shuffles.js';
 
-// used for the splash animation. Inspired by Spotify's year in rewind event sites.
+/**
+  Creates circles of a random color in a canvas continuously over time, that expand from nothing to a certain size, 
+  till they cover enough of the canvas, at which point, the cycle begins again with circles of a new color.
+
+  Used for the splash animation. 
+  Inspired by Spotify's year in rewind event sites.
+
+  * @param {object} templateSvgEl must be a valid Snap svg instance
+  * @param {array<string>} randomColors array of random color HEXs
+  * @param {string} options.idPrefix the prefix string to use for the sequentially generated IDs of the color splotches
+  * @param {number} options.generationIntervalInMs time to wait between circle generation
+  * @param {number} options.generationIntervalCircleCount # of circles to generate every interval
+  * @param {number} options.maxColorSequence # of circles after which to change color (switch cycles)
+  * @returns {object} a PaintCircles instance with all its methods and properties, that can be instantiated just by calling the constructor
+  */
 export class PaintCircles {
-  /**
-   * @param {object} templateSvgEl must be a valid Snap svg instance
-   * @param {array<string>} randomColors array of random color HEXs
-   * @param {string} options.idPrefix the prefix string to use for the sequentially generated IDs of the color splotches
-   */
   constructor(templateSvgEl, randomColors, options) {
     this.templateSvgEl = templateSvgEl;
-    this.generatedColors = randomColors;
-    this.allCircles = [];
-    this.circleCount = 0;
-    this.colorArray = [];
-    this.colorCount = 0;
+    this.canvasArea = 0;
+    this.generatedHexColors = randomColors;
+    this.circlesInCanvas = [];
+    this.hexColors = [];
+    this.whichGeneratedCircleInSequence = 1;
     this.options = {
       idPrefix: 'circle',
       generationIntervalInMs: 4000,
@@ -21,24 +30,27 @@ export class PaintCircles {
       maxColorSequence: 6,
     };
     this.options = Object.assign(this.options, options);
+    this.documentHiddenProperty = 'hidden';
+    this.visibilityChangeEvent = 'visibilityChangeEvent';
     
     if (typeof document.hidden !== 'undefined') { // Opera 12.10 and Firefox 18 and later support 
-      this.hidden = 'hidden';
-      this.visibilityChange = 'visibilitychange';
+      this.documentHiddenProperty = 'hidden';
+      this.visibilityChangeEvent = 'visibilityChangeEvent';
     } else if (typeof document.msHidden !== 'undefined') {
-      this.hidden = 'msHidden';
-      this.visibilityChange = 'msvisibilitychange';
+      this.documentHiddenProperty = 'msHidden';
+      this.visibilityChangeEvent = 'msvisibilityChangeEvent';
     } else if (typeof document.webkitHidden !== 'undefined') {
-      this.hidden = 'webkitHidden';
-      this.visibilityChange = 'webkitvisibilitychange';
+      this.documentHiddenProperty = 'webkitHidden';
+      this.visibilityChangeEvent = 'webkitvisibilityChangeEvent';
     }
 
     this.setup();
   }
 
   setup() {
-    this.colorArray = this.colorArray.concat(this.generatedColors);
-    this.colorArray = shuffleArray(this.colorArray);
+    this.canvasArea = this.calculateAreaOfCanvas(this.templateSvgEl.node);
+    this.hexColors = this.hexColors.concat(this.generatedHexColors);
+    this.hexColors = shuffleArray(this.hexColors);
     this.startGenerationClock(this.options.generationIntervalCircleCount, this.options.generationIntervalInMs);
     this.bindWindowFocusSwitch();
   }
@@ -46,6 +58,24 @@ export class PaintCircles {
   teardown() {
     this.templateSvgEl.remove();
     this.stopGenerationClock();
+  }
+
+  calculateAreaOfCanvas(canvasEl) {
+    let dimensions = canvasEl.getBoundingClientRect();
+
+    if (!dimensions) {
+      return;
+    }
+
+    return dimensions.height * dimensions.width;
+  }
+
+  calculateAreaOfCircle(radius) {
+    return 2 * Math.PI * radius;
+  }
+
+  calculatePercentageCoveredOfCanvas(parentArea, childArea) {
+    return (childArea / parentArea) * 100;
   }
 
   startGenerationClock(numCirclesToGenerate = 1, interval = 3000) {
@@ -68,8 +98,8 @@ export class PaintCircles {
     });
 
     // NOTE: visiblity change API is currently buggy on Safari
-    window.addEventListener(this.visibilityChange, () => {
-      if (document[this.hidden] || document.visibilityState === 'hidden') {
+    window.addEventListener(this.visibilityChangeEvent, () => {
+      if (document[this.documentHiddenProperty] || document.visibilityState === 'hidden') {
         this.clean();
         this.stopGenerationClock(); 
       } else {
@@ -83,8 +113,7 @@ export class PaintCircles {
    * @returns {string} ever increasing ID
    */
   generateID() {
-    this.circleCount += 1;
-    return this.options.idPrefix + this.circleCount;
+    return this.options.idPrefix + (this.circlesInCanvas.length + 1);
   }
   
   /**
@@ -92,7 +121,7 @@ export class PaintCircles {
    * @param {string} svgID ID of the circle
    */
   clean(svgID) {
-    this.allCircles = this.allCircles.filter(circleEl => {
+    this.circlesInCanvas = this.circlesInCanvas.filter(circleEl => {
       let id = circleEl.attr('id');
 
       if (typeof id !== 'undefined' && (typeof svgID === 'undefined' || id === svgID)) {
@@ -104,9 +133,8 @@ export class PaintCircles {
       }
     });
 
-    if (this.allCircles.length === 0) {
-      this.circleCount = 0;
-      this.colorCount = 0;
+    if (this.circlesInCanvas.length === 0) {
+      this.whichGeneratedCircleInSequence = 1;
     }
   }
 
@@ -126,42 +154,43 @@ export class PaintCircles {
         //Fade to 0 opacity after scale is complete
         snapSvgInstance.animate({
           opacity: 0
-        }, 15000, mina.easeInOut, () => {
+        }, 10000, mina.easeInOut, () => {
           // remove from DOM
           let domInstance = document.querySelector('#' + snapSvgInstance.attr('id'));
 
           if (domInstance) {
             domInstance.remove();
           }
+
           // remove from storage
-          this.allCircles.splice(this.allCircles.indexOf(snapSvgInstance), 1);
+          this.circlesInCanvas.splice(this.circlesInCanvas.indexOf(snapSvgInstance), 1);
         });
     });
   }
 
   // store SVG object and bind animation
   storeCircle(snapSvgObj, svgID) {
-    this.allCircles.push(snapSvgObj);
+    this.circlesInCanvas.push(snapSvgObj);
     this.animateCircle(snapSvgObj, svgID);
   }
 
   // random color sequence
-  sequentialRandomColor(interval = 7) {
-    if (this.colorCount <= interval) {
-      this.colorCount += 1;
-      return this.colorArray[0];
-    } else if (this.colorCount <= interval * 2) {
-      this.colorCount += 1;
-      return this.colorArray[1];
-    } else if (this.colorCount <= interval * 3) {
-      this.colorCount += 1;
-      return this.colorArray[2];
-    } else if (this.colorCount > interval * 3) {
-        let cachedColor = this.colorArray[2];
+  getSequentialRandomColor(interval = 7) {
+    if (this.whichGeneratedCircleInSequence <= interval) {
+      this.whichGeneratedCircleInSequence += 1;
+      return this.hexColors[0];
+    } else if (this.whichGeneratedCircleInSequence <= interval * 2) {
+      this.whichGeneratedCircleInSequence += 1;
+      return this.hexColors[1];
+    } else if (this.whichGeneratedCircleInSequence <= interval * 3) {
+      this.whichGeneratedCircleInSequence += 1;
+      return this.hexColors[2];
+    } else if (this.whichGeneratedCircleInSequence > interval * 3) {
+        let cachedColor = this.hexColors[2];
         //Shuffle colors when max (interval*3) is reached
-        this.colorArray = shuffleArray(this.colorArray);
+        this.hexColors = shuffleArray(this.hexColors);
         //Restart
-        this.colorCount = 0;
+        this.whichGeneratedCircleInSequence = 1;
         //Return color stored from earlier
         return cachedColor;
     } else {
@@ -176,14 +205,14 @@ export class PaintCircles {
       const screenHeight = window.innerHeight
       const screenWidth = window.innerWidth;
       //Assign random location
-      let x = Math.floor(Math.random() * ((screenWidth - 0) + 1) + (1));
+      let x = Math.floor(Math.random() * ((screenWidth - 0) + 1) + 1);
       let y = Math.floor((Math.random() * screenHeight) + 1) + 1;
       //Generate unique ID for every circle
       let uniqueID = this.generateID();
       
       this.storeCircle(
         (this.templateSvgEl.circle(x, y, 1)).attr({
-            fill: this.sequentialRandomColor(this.options.maxColorSequence),
+            fill: this.getSequentialRandomColor(this.options.maxColorSequence),
             id: uniqueID
         }),
         uniqueID
