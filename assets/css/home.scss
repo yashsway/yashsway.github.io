@@ -166,6 +166,12 @@ body {
 }
 
 #experience-section {
+    background-color: #3F325D;
+
+    .section-header {
+      color: white;
+    }
+
     #one {
         @include flex(1 1 20%);
     }
