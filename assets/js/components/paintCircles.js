@@ -23,6 +23,7 @@ export class PaintCircles {
     this.circlesInCanvas = [];
     this.hexColors = [];
     this.whichGeneratedCircleInSequence = 1;
+    this.whichColorInSequence = 1;
     this.options = {
       idPrefix: 'circle',
       generationIntervalInMs: 4000,
@@ -176,26 +177,21 @@ export class PaintCircles {
 
   // random color sequence
   getSequentialRandomColor(interval = 7) {
-    if (this.whichGeneratedCircleInSequence <= interval) {
-      this.whichGeneratedCircleInSequence += 1;
-      return this.hexColors[0];
-    } else if (this.whichGeneratedCircleInSequence <= interval * 2) {
-      this.whichGeneratedCircleInSequence += 1;
-      return this.hexColors[1];
-    } else if (this.whichGeneratedCircleInSequence <= interval * 3) {
-      this.whichGeneratedCircleInSequence += 1;
-      return this.hexColors[2];
-    } else if (this.whichGeneratedCircleInSequence > interval * 3) {
-        let cachedColor = this.hexColors[2];
-        //Shuffle colors when max (interval*3) is reached
-        this.hexColors = shuffleArray(this.hexColors);
-        //Restart
-        this.whichGeneratedCircleInSequence = 1;
-        //Return color stored from earlier
-        return cachedColor;
-    } else {
-      return '#000';
+    if (this.whichGeneratedCircleInSequence % interval === 0) {
+      this.whichColorInSequence += 1;
     }
+
+    if (this.whichGeneratedCircleInSequence > this.hexColors.length) {
+      let cachedColor = this.hexColors[this.whichColorInSequence - 1];
+      //Shuffle colors when the end of the color array is reached
+      this.hexColors = shuffleArray(this.hexColors);
+      //Restart, but keep track of the interval
+      this.whichGeneratedCircleInSequence = Math.abs(this.hexColors.length - interval);
+      //Return color stored from earlier
+      return cachedColor;
+    }
+
+    return this.hexColors[this.whichColorInSequence - 1];
   }
 
   // generate color circles in random locations of the visible screen
@@ -217,6 +213,7 @@ export class PaintCircles {
         }),
         uniqueID
       );
+      this.whichGeneratedCircleInSequence += 1;
     }
   }
 }
