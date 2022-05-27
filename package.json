@@ -10,7 +10,6 @@
     "css:build": "npx tailwindcss -i ./assets/css/index.css -o ./dist/index.css --watch",
     "css:watch": "npx tailwindcss -i ./assets/css/index.css -o ./dist/index.css",
     "clean": "shx rm -rv dist/*",
-    "copy-web": "cp CNAME dist/CNAME && cp humans.txt dist/humans.txt && cp robots.txt dist/robots.txt",
     "build:gh-pages": "yarn copy-web && push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "repository": {
@@ -27,6 +26,7 @@
     "@parcel/transformer-sass": "2.6.0",
     "autoprefixer": "^10.4.7",
     "parcel": "^2.6.0",
+    "parcel-reporter-static-files-copy": "^1.3.4",
     "postcss": "^8.4.14",
     "push-dir": "^0.4.1",
     "shx": "^0.3.4",
@@ -36,5 +36,9 @@
     "drafts": {
       "nesting": true
     }
+  },
+  "staticFiles": {
+    "staticPath": "public",
+    "watcherGlob": "**"
   }
 }
