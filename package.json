@@ -8,7 +8,9 @@
     "start": "parcel",
     "build": "parcel build",
     "css:build": "npx tailwindcss -i ./assets/css/index.css -o ./dist/index.css --watch",
-    "css:watch": "npx tailwindcss -i ./assets/css/index.css -o ./dist/index.css"
+    "css:watch": "npx tailwindcss -i ./assets/css/index.css -o ./dist/index.css",
+    "clean": "shx rm -rv dist/*",
+    "build:gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,8 @@
     "autoprefixer": "^10.4.7",
     "parcel": "^2.6.0",
     "postcss": "^8.4.14",
+    "push-dir": "^0.4.1",
+    "shx": "^0.3.4",
     "tailwindcss": "^3.0.24"
   },
   "@parcel/transformer-css": {
