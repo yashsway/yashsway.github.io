@@ -27,7 +27,7 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700|EB+Garamond|Raleway:500,600|Oswald' rel="stylesheet" type="text/css">
     <!-- my CSS -->
-    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <!-- dns prefetching for critical external deps -->
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/">
     <!-- internal preloading -->
@@ -35,39 +35,24 @@
 </head>
 
 <body>
-    <!-- NOTE: I'm in the process of refactoring this insanely old website. Not everything here is reflective of where I am today! -->
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" id="circleLoader"></svg>
-    <main id="main-wrapper">
-        <div id="header-section">
-            <div class="flex-parent-column stretch">
-                <div class="flex-child-column" id="push"></div>
-                <div class="flex-child-column" id="one">
-                    <div class="content">
-                        <p class="header center" id="home-title">Yash Kadaru</p>
-                    </div>
-                </div>
-                <div class="flex-child-column" id="two">
-                    <div class="content">
-                        <p class="sub-header center" id="home-designation">Software Engineer . Designer</p>
-                    </div>
-                </div>
-                <div class="flex-child-column" id="push"></div>
+    <main>
+        <section class="h-screen w-screen relative">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="w-full h-full absolute" id="circleCanvas"></svg>
+            <div class="container flex justify-center items-center flex-col font-sans relative z-10 h-full w-full">
+                <h1 class="text-8xl font-bold text-bluegray-base mb-3">Yash Kadaru</h1>
+                <p class="text-2xl text-indigo-light">Software Engineer . Designer</p>
             </div>
-        </div>
-        <div class="home-section" id="hook-section">
-            <div class="flex-parent-column stretch">
-                <div class="flex-child-column" id="one">
-                    <p class="sub-header center section-header">I love code &amp; design.</p>
-                </div>
-            </div>
-        </div>
-        <div class="home-section" id="experience-section">
-            <div class="flex-parent-column flex-parent-center stretch">
-                <div class="flex-child-column" id="one">
-                    <p class="sub-header center section-header">I've worked with many great teams and people.</p>
-                </div>
-            </div>
-        </div>
+        </section>
+        <section class="bg-gray-light">
+          <div class="container p-6 w-full h-full text-center">
+            <p class="text-4xl font-semibold">I love code &amp; design.</p>
+          </div>
+        </section>
+        <section class="bg-indigo-base text-yellow-light">
+          <div class="container p-6 w-full h-full text-center">
+            <p class="text-4xl font-semibold">I've worked with many great teams and people.</p>
+          </div>
+        </section>
         <div class="home-section" id="footer-section">
             <div class="flex-parent-column stretch">
                 <div class="flex-child-column" id="one">
@@ -116,6 +101,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js" type="application/javascript"></script>
     <!-- randomColor -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.4.4/randomColor.min.js" type="application/javascript"></script>
-    <script src="assets/js/home.js" type="module"></script>
+    <script src="assets/js/index.js" type="module"></script>
 </body>
 </html>

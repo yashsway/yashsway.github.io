@@ -1,0 +1,35 @@
+{
+  "name": "yash-kadaru-personal-website",
+  "version": "1.0.0",
+  "description": "",
+  "source": "./index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build",
+    "css:build": "npx tailwindcss -i ./assets/css/index.css -o ./dist/index.css --watch",
+    "css:watch": "npx tailwindcss -i ./assets/css/index.css -o ./dist/index.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yashsway/yashsway.github.io.git"
+  },
+  "author": "Yash Kadaru",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/yashsway/yashsway.github.io/issues"
+  },
+  "homepage": "https://github.com/yashsway/yashsway.github.io#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "2.6.0",
+    "autoprefixer": "^10.4.7",
+    "parcel": "^2.6.0",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.0.24"
+  },
+  "@parcel/transformer-css": {
+    "drafts": {
+      "nesting": true
+    }
+  }
+}
