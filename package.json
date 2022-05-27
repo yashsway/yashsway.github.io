@@ -9,8 +9,8 @@
     "build": "parcel build",
     "css:build": "npx tailwindcss -i ./assets/css/index.css -o ./dist/index.css --watch",
     "css:watch": "npx tailwindcss -i ./assets/css/index.css -o ./dist/index.css",
-    "clean": "shx rm -rv dist/*",
-    "build:gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
+    "clean": "shx rm -r ./dist/*",
+    "build:gh-pages": "yarn clean && push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "repository": {
     "type": "git",
