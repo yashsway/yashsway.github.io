@@ -19,7 +19,7 @@
     <meta name="twitter:description" content="Personal site and portfolio of Yash Kadaru. Software Engineer & Designer, passionate about clean code and good design.">
     <meta name="twitter:image" content="https://yashkadaru.com/media/images/og-share.jpg">
     <!--mobile viewport optimization-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <!-- normalization -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
     <!-- external fonts, establish preconnection for dns caching -->
@@ -33,69 +33,55 @@
     <!-- internal preloading -->
     <link rel="preload" href="assets/js/components/paintCircles.js" as="script" crossorigin="anonymous">
 </head>
-
 <body>
     <main>
         <section class="h-screen w-screen relative">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="w-full h-full absolute" id="circleCanvas"></svg>
-            <div class="container flex justify-center items-center flex-col font-sans relative z-10 h-full w-full">
-                <h1 class="text-8xl font-bold text-bluegray-base mb-3">Yash Kadaru</h1>
-                <p class="text-2xl text-indigo-light">Software Engineer . Designer</p>
-            </div>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="w-full h-full absolute" id="circleCanvas"></svg>
+          <div class="container flex justify-center items-center flex-col font-sans relative z-10 p-3 h-full w-full my-0 mx-auto">
+              <h1 class="text-center text-5xl md:text-8xl font-bold text-bluegray-base mb-3">Yash Kadaru</h1>
+              <p class="text-center text-lg md:text-2xl text-indigo-light">Software Engineer . Designer</p>
+          </div>
         </section>
         <section class="bg-gray-light">
-          <div class="container p-6 w-full h-full text-center">
-            <p class="text-4xl font-semibold">I love code &amp; design.</p>
+          <div class="container p-6 w-full h-full text-center my-0 mx-auto">
+            <p class="text-2xl md:text-4xl font-semibold">I love code &amp; design.</p>
           </div>
         </section>
         <section class="bg-indigo-base text-yellow-light">
-          <div class="container p-6 w-full h-full text-center">
-            <p class="text-4xl font-semibold">I've worked with many great teams and people.</p>
+          <div class="container p-6 w-full h-full text-center my-0 mx-auto">
+            <p class="text-2xl md:text-4xl font-semibold">I've worked with many great teams and people.</p>
           </div>
         </section>
-        <div class="home-section" id="footer-section">
-            <div class="flex-parent-column stretch">
-                <div class="flex-child-column" id="one">
-                    <p class="sub-header center section-header">Let's chat!</p>
-                </div>
-                <div class="flex-child-column" id="two">
-                    <div class="flex-parent-row inherit-max-height">
-                        <div class="flex-child-row">
-                            You can reach me fastest through email below. Currently in Toronto, Canada.
-                        </div>
-                    </div>
-                </div>
-                <div class="flex-child-column" id="three">
-                    <div class="flex-parent-row inherit-max-height">
-                        <div class="flex-child-row">
-                            <div class="home-section__social-links">
-                                <a class="home-section__social-link" href="mailto:hello@yashkadaru.com?subject=Hi%20Yash!"><img class="contact-icons" src="media/icons/email.png" alt="email" title="Email"></a>
-                                <a class="home-section__social-link" href="https://ca.linkedin.com/in/yashgopal" target="_blank"><img class="contact-icons" src="media/icons/linkedIn.png" alt="linkedIn" title="LinkedIn Profile">
-                                </a>
-                                <a class="home-section__social-link" href="https://github.com/yashsway" target="_blank"><img class="contact-icons" src="media/icons/git.png" alt="Github" title="Github Profile">
-                                </a>
-                                <a class="home-section__social-link" href="https://dribbble.com/yashsway" target="_blank"><img class="contact-icons" src="media/icons/dribble.png" alt="Dribble" title="Dribble Profile" /></a>
-                                <a class="home-section__social-link" href="https://stackoverflow.com/users/3436164/ykadaru" target="_blank"><img class="contact-icons" src="media/icons/stackover.png" alt="Stack Overflow" title="Stack Overflow Profile">
-                                </a>
-                                <a class="home-section__social-link" href="https://devpost.com/yashsway" target="_blank"><img class="contact-icons" src="media/icons/devpost.png" alt="Devpost" title="Devpost Profile">
-                                </a>
-                                <a class="home-section__social-link" href="https://medium.com/@YashsWay" target="_blank"><img class="contact-icons" src="media/icons/medium.png" alt="Medium" title="Personal Blog"></a>
-                                <a class="home-section__social-link" href="https://dev.to/yashsway" target="_blank"><img class="contact-icons" src="media/icons/devto.png" alt="dev.to" title="Dev.to Profile"></a>
-                                <a class="home-section__social-link" href="./assets/yashkadaru_resume_2022.pdf" target="_blank"><img class="contact-icons" src="media/icons/resume.png" alt="Resume" title="My Resume"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex-child-column" id="four">
-                    <div class="flex-parent-row">
-                        <div class="flex-child-row">
-                            <p class="sub-sub-header center" id="author">Made from scratch with &#9829</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <section class="bg-gray-base text-indigo-base">
+          <div class="container p-6 w-full h-full text-center my-0 mx-auto">
+            <p class="text-2xl md:text-4xl font-semibold">I'm a full-stack Engineer, with expertise in the front-end.</p>
+          </div>
+        </section>
+        <section class="bg-bluegray-dark text-gray-light">
+          <div class="container p-6 w-full h-full text-center my-0 mx-auto">
+            <h2 class="text-2xl md:text-4xl font-semibold mb-3">Let's chat!</h2>
+            <p class="text-md md:text-xl">You can reach me fastest through email below. Currently in Toronto, Canada.</p>
+            <ul class="flex flex-row md:flex-nowrap flex-wrap justify-center items-center mt-5">
+              <li class="social-link"><a href="mailto:hello@yashkadaru.com?subject=Hi%20Yash!"><img src="media/icons/email.png" alt="email" title="Email"></a></li>
+              <li class="social-link"><a href="https://ca.linkedin.com/in/yashgopal" target="_blank"><img src="media/icons/linkedIn.png" alt="linkedIn" title="LinkedIn Profile">
+              </a></li>
+              <li class="social-link"><a href="https://github.com/yashsway" target="_blank"><img src="media/icons/git.png" alt="Github" title="Github Profile">
+              </a></li>
+              <li class="social-link"><a href="https://dribbble.com/yashsway" target="_blank"><img src="media/icons/dribble.png" alt="Dribble" title="Dribble Profile" /></a></li>
+              <li class="social-link"><a href="https://stackoverflow.com/users/3436164/ykadaru" target="_blank"><img src="media/icons/stackover.png" alt="Stack Overflow" title="Stack Overflow Profile">
+              </a></li>
+              <li class="social-link"><a href="https://devpost.com/yashsway" target="_blank"><img src="media/icons/devpost.png" alt="Devpost" title="Devpost Profile">
+              </a></li>
+              <li class="social-link"><a href="https://medium.com/@YashsWay" target="_blank"><img src="media/icons/medium.png" alt="Medium" title="Personal Blog"></a></li>
+              <li class="social-link"><a href="https://dev.to/yashsway" target="_blank"><img src="media/icons/devto.png" alt="dev.to" title="Dev.to Profile"></a></li>
+              <li class="social-link"><a href="./assets/yashkadaru_resume_2022.pdf" target="_blank"><img src="media/icons/resume.png" alt="Resume" title="My Resume"></a></li>
+            </ul>
+          </div>
+        </section>
     </main>
+    <footer class="bg-bluegray-dark text-red text-center p-3">
+      <p class="italic">Made from scratch with &#9829</p>
+    </footer>
     <!-- scripts -->
     <!-- snapsvg -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js" type="application/javascript"></script>

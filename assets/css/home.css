@@ -1,0 +1,9 @@
+.social-link {
+  & a {
+    @apply block rounded-lg hover:outline hover:outline-2 hover:outline-offset-1 hover:outline-yellow-base;
+  }
+
+  & img {
+    @apply w-14;
+  }
+}
