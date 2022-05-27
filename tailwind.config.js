@@ -24,8 +24,9 @@ module.exports = {
       }
     },
     fontFamily: {
-      sans: ['Agenda', 'Abel', 'sans-serif'],
-      serif: ['serif'],
+      sans: ['Agenda', 'sans-serif'],
+      serif: ['Georgia', 'Cambria', 'serif'],
+      body: ['Abel']
     },
     extend: {},
   },
