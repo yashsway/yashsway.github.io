@@ -50,7 +50,7 @@
     "startURL": "./",
     "theme": "#3F325D",
     "backgroundColor": "#fff",
-    "generateIconOptions": {
+    "genIconOpts": {
       "baseIcon": "./media/icons/webclip.jpg",
       "sizes": [
         192,
@@ -58,7 +58,10 @@
         384,
         512
       ],
-      "genFavicons": true
+      "genFavicons": true,
+      "purpose": [
+        "maskable"
+      ]
     }
   }
 }
