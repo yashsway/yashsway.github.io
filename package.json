@@ -23,9 +23,12 @@
   },
   "homepage": "https://github.com/yashsway/yashsway.github.io#readme",
   "devDependencies": {
+    "@parcel/packager-raw-url": "2.6.0",
+    "@parcel/packager-xml": "2.6.0",
     "@parcel/transformer-sass": "2.6.0",
     "autoprefixer": "^10.4.7",
     "parcel": "^2.6.0",
+    "parcel-config-pwa-manifest": "^0.1.2",
     "parcel-reporter-static-files-copy": "^1.3.4",
     "postcss": "^8.4.14",
     "push-dir": "^0.4.1",
@@ -40,5 +43,21 @@
   "staticFiles": {
     "staticPath": "public",
     "watcherGlob": "**"
+  },
+  "pwaManifest": {
+    "name": "Yash Kadaru's Personal Website",
+    "startURL": "./",
+    "theme": "#3F325D",
+    "backgroundColor": "#fff",
+    "generateIconOptions": {
+      "baseIcon": "./media/icons/webclip.jpg",
+      "sizes": [
+        192,
+        256,
+        384,
+        512
+      ],
+      "genFavicons": true
+    }
   }
 }

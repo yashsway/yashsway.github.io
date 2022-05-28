@@ -6,6 +6,7 @@
   font-family: 'Agenda';
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
   src: url(../../fonts/agenda-bold.woff2) format('woff2'), url(../../fonts/agenda-bold.woff) format('woff'), url(../../fonts/agenda-bold.ttf) format('truetype');
 }
 
@@ -13,6 +14,7 @@
   font-family: 'Agenda';
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
   src: url(../../fonts/agenda-medium-webfont.woff2) format('woff2'), url(../../fonts/agenda-medium-webfont.woff) format('woff'), url(../../fonts/agenda-medium.ttf) format('truetype');
 }
 
@@ -20,6 +22,7 @@
   font-family: 'Agenda';
   font-weight: 500;
   font-style: italic;
+  font-display: swap;
   src: url(../../fonts/agenda-medium-italic-webfont.woff2) format('woff2'), url(../../fonts/agenda-medium-italic-webfont.woff) format('woff'), url(../../fonts/agenda-medium-italic.ttf) format('truetype');
 }
 
@@ -27,6 +30,7 @@
   font-family: 'Agenda';
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
   src: url(../../fonts/agenda-light-webfont.woff2) format('woff2'), url(../../fonts/agenda-light-webfont.woff) format('woff'), url(../../fonts/agenda-light.ttf) format('truetype');
 }
 
@@ -34,10 +38,14 @@
   font-family: 'Agenda';
   font-weight: 300;
   font-style: italic;
+  font-display: swap;
   src: url(../../fonts/agenda-light-italic-webfont.woff2) format('woff2'), url(../../fonts/agenda-light-italic-webfont.woff) format('woff'), url(../../fonts/agenda-light-italic.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'Abel';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
   src: url(../../fonts/abel-regular-webfont.woff2) format('woff2'), url(../../fonts/abel-regular-webfont.woff) format('woff'), url(../../fonts/abel-regular.ttf) format('truetype');
 }
