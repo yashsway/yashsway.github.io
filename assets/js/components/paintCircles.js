@@ -19,6 +19,7 @@ import sleep from '../utilities/sleep.js';
 export class PaintCircles {
   constructor(templateSvgEl, randomColors, options) {
     this.templateSvgEl = templateSvgEl;
+    this.generationIntervals = new Set();
     this.canvasArea = 0;
     this.generatedHexColors = randomColors;
     this.circlesInCanvas = [];
@@ -54,11 +55,18 @@ export class PaintCircles {
     this.hexColors = shuffleArray(this.hexColors);
     this.startGenerationClock(this.options.generationIntervalCircleCount, this.options.generationIntervalInMs);
     this.bindWindowFocusSwitch();
+    this.bindIntersectionObserver();
   }
 
   teardown() {
-    this.templateSvgEl.remove();
+    this.canvasArea = 0;
+    this.hexColors = [];
     this.stopGenerationClock();
+    window.removeEventListener('focus', this.boundStartGenerationClock);
+    window.removeEventListener('blur', this.boundCleanAndStopGenerationClock);
+    document.removeEventListener(this.visibilityChangeEvent, this.boundOnVisibilityChange);
+    this.observer.disconnect();
+    this.clean();
   }
 
   calculateAreaOfCanvas(canvasEl) {
@@ -96,31 +104,59 @@ export class PaintCircles {
     // generate one circle immediately
     this.generateCircles(numCirclesToGenerate);
     // start generating circles every interval
-    this.generationInterval = setInterval(() => this.generateCircles(numCirclesToGenerate), interval);
+    this.generationIntervals.add(setInterval(() => this.generateCircles(numCirclesToGenerate), interval));
   }
 
   stopGenerationClock() {
-    window.clearInterval(this.generationInterval);
+    for (let interval of this.generationIntervals) {
+      window.clearInterval(interval);
+      this.generationIntervals.delete(interval);
+    }
   }
 
   bindWindowFocusSwitch() {
-    // keep track of whether the browser tab or window is in focus. If not, pause animations and other background js processes for performance
-    window.addEventListener('focus', this.startGenerationClock.bind(this));
-    window.addEventListener('blur', () => {
+    this.boundStartGenerationClock = this.startGenerationClock.bind(this);
+    this.boundCleanAndStopGenerationClock = () => {
       this.clean();
       this.stopGenerationClock();
-    });
+    };
+    this.boundOnVisibilityChange = this.onVisibilityChange.bind(this);
+
+    // keep track of whether the browser tab or window is in focus. If not, pause animations and other background js processes for performance
+    window.addEventListener('focus', this.boundStartGenerationClock);
+    window.addEventListener('blur', this.boundCleanAndStopGenerationClock);
 
     // NOTE: visiblity change API is currently buggy on Safari
-    document.addEventListener(this.visibilityChangeEvent, () => {
-      this.clean();
+    document.addEventListener(this.visibilityChangeEvent, this.boundOnVisibilityChange);
+  }
 
-      if (document[this.documentHiddenProperty] || document.visibilityState === 'hidden') {
-        this.stopGenerationClock(); 
-      } else {
-        this.startGenerationClock();
-      }
-    });
+  onVisibilityChange() {
+    this.clean();
+
+    if (document[this.documentHiddenProperty] || document.visibilityState === 'hidden') {
+      this.stopGenerationClock(); 
+    } else {
+      this.startGenerationClock();
+    }
+  }
+
+  bindIntersectionObserver() {
+    if (!window.IntersectionObserver) {
+      return;
+    }
+
+    this.observer = new IntersectionObserver((entries, observer) => { 
+      entries.forEach(entry => {
+        if (entry.intersectionRatio <= 0.1 && this.circlesInCanvas.length){
+          this.stopGenerationClock();
+          this.clean();
+        } else if (entry.intersectionRatio > 0.1 && !this.circlesInCanvas.length) {
+          this.startGenerationClock();
+        }
+      });
+    }, {threshold: [0.1, 0.6]});
+
+    this.observer.observe(this.templateSvgEl.node);
   }
 
   /**
