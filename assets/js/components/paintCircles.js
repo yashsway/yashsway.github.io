@@ -1,4 +1,5 @@
 import {shuffleArray} from '../utilities/shuffles.js';
+import sleep from '../utilities/sleep.js';
 
 /**
   Creates circles of a random color in a canvas continuously over time, that expand from nothing to a certain size, 
@@ -93,9 +94,9 @@ export class PaintCircles {
 
   startGenerationClock(numCirclesToGenerate = 1, interval = 3000) {
     // generate one circle immediately
-    this.generateRandomCircles(numCirclesToGenerate);
+    this.generateCircles(numCirclesToGenerate);
     // start generating circles every interval
-    this.generationInterval = setInterval(() => this.generateRandomCircles(numCirclesToGenerate), interval);
+    this.generationInterval = setInterval(() => this.generateCircles(numCirclesToGenerate), interval);
   }
 
   stopGenerationClock() {
@@ -145,6 +146,7 @@ export class PaintCircles {
       document.querySelector('#' + circle.attr('id')).remove();
     });
     this.circlesInCanvas = [];
+    this.whichColorInSequence = 1;
   }
 
   /**
@@ -169,40 +171,62 @@ export class PaintCircles {
     });
   }
 
+  async animateCircle(snapSvgInstance) {
+    await this.growCircle(snapSvgInstance);
+    await sleep(1000);
+    await this.fadeCircle(snapSvgInstance);
+
+    // Then delete the instance completely from the DOM and store
+    // remove from DOM
+    let domInstance = document.querySelector('#' + snapSvgInstance.attr('id'));
+
+    if (domInstance) {
+      domInstance.remove();
+    }
+
+    // remove from storage
+    this.circlesInCanvas.splice(this.circlesInCanvas.indexOf(snapSvgInstance), 1);
+  }
+
   /**
-   * Binds animation to SVG circle of a certain ID
+   * Makes an SVG circle grow to fill the space of the templateSvgEl
    * @param {object} snapSvgInstance valid Snap svg object
-   * @param {string} svgID ID of the SVG to target
    */
-  animateCircle(snapSvgInstance, svgID) {
-    snapSvgInstance.animate({
-        //scale
-        r: 800
-    },
-    10000,
-    mina.easeInOut,
-    () => {
-        //Fade to 0 opacity after scale is complete
-        snapSvgInstance.animate({
-          opacity: 0
-        }, 2500, mina.linear, () => {
-          // remove from DOM
-          let domInstance = document.querySelector('#' + snapSvgInstance.attr('id'));
-
-          if (domInstance) {
-            domInstance.remove();
-          }
-
-          // remove from storage
-          this.circlesInCanvas.splice(this.circlesInCanvas.indexOf(snapSvgInstance), 1);
-        });
+  growCircle(snapSvgInstance, durationInMs = 10000) {
+    return new Promise((resolve, reject) => {
+      snapSvgInstance.animate(
+        {
+          //scale
+          r: this.templateSvgEl.node.clientWidth / 1.5
+        },
+        durationInMs,
+        mina.easeInOut,
+        () => resolve()
+      );
     });
   }
 
-  // store SVG object and bind animation
-  storeCircle(snapSvgObj, svgID) {
+  /**
+   * Makes a Snap SVG circle fade out
+   * @param {object} snapSvgInstance  valid Snap svg object
+   */
+  fadeCircle(snapSvgInstance, durationInMs = 1000) {
+    return new Promise((resolve, reject) => {
+      //Fade to 0 opacity after scale is complete
+      snapSvgInstance.animate(
+        {
+          opacity: 0
+        },
+        durationInMs,
+        mina.linear,
+        () => resolve()
+      );
+    });
+  }
+
+  // store SVG object in store
+  storeCircle(snapSvgObj) {
     this.circlesInCanvas.push(snapSvgObj);
-    this.animateCircle(snapSvgObj, svgID);
   }
 
   // random color sequence
@@ -222,25 +246,34 @@ export class PaintCircles {
     return currentHexColor;
   }
 
+  getRandomViewportCoordinate() {
+    //Extract viewport dimensions
+    const screenHeight = window.innerHeight;
+    const screenWidth = window.innerWidth;
+    //Assign random location
+    const x = Math.floor(Math.random() * ((screenWidth - 0) + 1) + 1);
+    const y = Math.floor((Math.random() * screenHeight) + 1) + 1;
+
+    return [x, y];
+  }
+
   // generate color circles in random locations of the visible screen
-  generateRandomCircles(numCirclesToGenerate = 3) {
+  generateCircles(numCirclesToGenerate = 3, getCoordinates = this.getRandomViewportCoordinate) {
     for (let i = 0; i < numCirclesToGenerate; i++) {
-      //Extract viewport dimensions
-      const screenHeight = window.innerHeight;
-      const screenWidth = window.innerWidth;
-      //Assign random location
-      const x = Math.floor(Math.random() * ((screenWidth - 0) + 1) + 1);
-      const y = Math.floor((Math.random() * screenHeight) + 1) + 1;
+      //Coordinates for generation origin
+      const [x, y] = getCoordinates();
       //Generate unique ID for every circle
       const uniqueID = this.generateID();
+      //Create circle instance
+      const circleInstance = this.templateSvgEl
+        .circle(x, y, 1)
+        .attr({
+          fill: this.getSequentialRandomColor(),
+          id: uniqueID
+        });
       
-      this.storeCircle(
-        this.templateSvgEl.circle(x, y, 1).attr({
-            fill: this.getSequentialRandomColor(),
-            id: uniqueID
-        }),
-        uniqueID
-      );
+      this.storeCircle(circleInstance);
+      this.animateCircle(circleInstance);
     }
   }
 }
