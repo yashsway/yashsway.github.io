@@ -10,9 +10,9 @@
     "css:build": "npx tailwindcss -i ./assets/css/index.css -o ./dist/index.css --watch",
     "css:watch": "npx tailwindcss -i ./assets/css/index.css -o ./dist/index.css",
     "clean": "shx rm -r dist/*",
-    "build:gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose",
-    "deploy:ready": "yarn clean && yarn build",
-    "deploy": "yarn deploy:ready && yarn build:gh-pages"
+    "deploy:gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose",
+    "deploy:ready": "npm-run-all -s -c -l clean build",
+    "deploy": "npm-run-all -s -l deploy:ready deploy:gh-pages"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "@parcel/packager-xml": "2.6.0",
     "@parcel/transformer-sass": "2.6.0",
     "autoprefixer": "^10.4.7",
+    "npm-run-all": "^4.1.5",
     "parcel": "^2.6.0",
     "parcel-config-pwa-manifest": "^0.1.2",
     "parcel-reporter-static-files-copy": "^1.3.4",
