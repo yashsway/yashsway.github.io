@@ -9,7 +9,7 @@
     "build": "parcel build",
     "css:build": "npx tailwindcss -i ./assets/css/index.css -o ./dist/index.css --watch",
     "css:watch": "npx tailwindcss -i ./assets/css/index.css -o ./dist/index.css",
-    "clean": "shx rm -r dist/*",
+    "clean": "shx rm -rf dist/*",
     "deploy:gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose",
     "deploy:ready": "npm-run-all -s -c -l clean build",
     "deploy": "npm-run-all -s -l deploy:ready deploy:gh-pages"
