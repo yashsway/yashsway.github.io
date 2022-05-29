@@ -28,7 +28,7 @@ export class PaintCircles {
       idPrefix: 'circle',
       generationIntervalInMs: 4000,
       generationIntervalCircleCount: 1,
-      areaCoveredThreshold: 90,
+      areaCoveredThreshold: 95,
     };
     this.options = Object.assign(this.options, options);
     this.documentHiddenProperty = 'hidden';
@@ -171,37 +171,46 @@ export class PaintCircles {
     });
   }
 
-  async animateCircle(snapSvgInstance) {
-    await this.growCircle(snapSvgInstance);
-    await sleep(1000);
-    await this.fadeCircle(snapSvgInstance);
+  /**
+   * Animates a circle to grow, pause for a little while, fade out, then remove itself from local store and the DOM
+   * @param {object} snapSvgInstance 
+   */
+  animateCircle(snapSvgInstance) {
+    this
+      .growCircle(snapSvgInstance, 10000)
+      .then(() => sleep(5000))
+      .then(() => this.fadeCircle(snapSvgInstance, 1000))
+      .then(() => {
+        // Then delete the instance completely from the DOM and store
+        // remove from DOM
+        let domInstance = document.querySelector('#' + snapSvgInstance.attr('id'));
 
-    // Then delete the instance completely from the DOM and store
-    // remove from DOM
-    let domInstance = document.querySelector('#' + snapSvgInstance.attr('id'));
+        if (domInstance) {
+          domInstance.remove();
+        }
 
-    if (domInstance) {
-      domInstance.remove();
-    }
-
-    // remove from storage
-    this.circlesInCanvas.splice(this.circlesInCanvas.indexOf(snapSvgInstance), 1);
+        // remove from storage
+        this.circlesInCanvas.splice(this.circlesInCanvas.indexOf(snapSvgInstance), 1);
+      });
   }
 
   /**
    * Makes an SVG circle grow to fill the space of the templateSvgEl
    * @param {object} snapSvgInstance valid Snap svg object
+   * @param {number} durationInMs how long should the animation happen for?
    */
   growCircle(snapSvgInstance, durationInMs = 10000) {
+    const sizeToScaleTo = Math.max(this.templateSvgEl.node.clientWidth, this.templateSvgEl.node.clientHeight) / 1.25;
+
     return new Promise((resolve, reject) => {
       snapSvgInstance.animate(
         {
-          //scale
-          r: this.templateSvgEl.node.clientWidth / 1.5
+          //target radius
+          r: sizeToScaleTo
         },
         durationInMs,
         mina.easeInOut,
-        () => resolve()
+        () => resolve(snapSvgInstance)
       );
     });
   }
@@ -209,6 +218,7 @@ export class PaintCircles {
   /**
    * Makes a Snap SVG circle fade out
    * @param {object} snapSvgInstance  valid Snap svg object
+   * @param {number} durationInMs how long should the animation happen for?
    */
   fadeCircle(snapSvgInstance, durationInMs = 1000) {
     return new Promise((resolve, reject) => {
@@ -219,7 +229,7 @@ export class PaintCircles {
         },
         durationInMs,
         mina.linear,
-        () => resolve()
+        () => resolve(snapSvgInstance)
       );
     });
   }
@@ -229,7 +239,12 @@ export class PaintCircles {
     this.circlesInCanvas.push(snapSvgObj);
   }
 
-  // random color sequence
+  /**
+   * Gets the current color in the color sequence, unless we're at the end of the sequence
+   * in which case we shuffle the sequence and start over. If enough of the canvas is covered with one color
+   * we increment to the next color in the sequence.
+   * @returns {string} HEX color
+   */
   getSequentialRandomColor() {
     let currentHexColor = this.hexColors[this.whichColorInSequence - 1];
 
@@ -246,10 +261,14 @@ export class PaintCircles {
     return currentHexColor;
   }
 
+  /**
+   * Get random viewport coordinates from the template SVG element
+   * @returns {array} x and y coordinate array
+   */
   getRandomViewportCoordinate() {
     //Extract viewport dimensions
-    const screenHeight = window.innerHeight;
-    const screenWidth = window.innerWidth;
+    const screenHeight = this.templateSvgEl.node.clientHeight;
+    const screenWidth = this.templateSvgEl.node.clientWidth;
     //Assign random location
     const x = Math.floor(Math.random() * ((screenWidth - 0) + 1) + 1);
     const y = Math.floor((Math.random() * screenHeight) + 1) + 1;
@@ -257,8 +276,12 @@ export class PaintCircles {
     return [x, y];
   }
 
-  // generate color circles in random locations of the visible screen
-  generateCircles(numCirclesToGenerate = 3, getCoordinates = this.getRandomViewportCoordinate) {
+  /**
+   * Generates circles at random coordinates specified by the getCoordinates function, stores them in local store, and animates them
+   * @param {number} numCirclesToGenerate the number of circles to generate
+   * @param {function} getCoordinates function that returns an x,y coordinate for the circle to be generated
+   */
+  generateCircles(numCirclesToGenerate = 3, getCoordinates = this.getRandomViewportCoordinate.bind(this)) {
     for (let i = 0; i < numCirclesToGenerate; i++) {
       //Coordinates for generation origin
       const [x, y] = getCoordinates();
