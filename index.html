@@ -22,16 +22,17 @@
     <meta name="twitter:image" content="https://yashkadaru.com/media/images/og-share.jpg">
     <!-- viewport and mobile 'notch' optimization -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- dns prefetching for critical CDN deps -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/">
     <!-- external fonts, establish preconnection for dns caching -->
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
     <link href='https://fonts.googleapis.com/css?family=EB+Garamond&display=swap' rel="stylesheet" type="text/css">
-    <!-- my CSS -->
+    <!-- preload critical page-rendering assets -->
+    <link rel="preload" href="assets/css/index.css" as="style">
+    <link rel="preload" href="assets/js/index.js" as="script">
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/index.css">
-    <!-- dns prefetching for critical external deps -->
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/">
-    <!-- internal preloading -->
-    <link rel="preload" href="assets/js/components/paintCircles.js" as="script" crossorigin="anonymous">
 </head>
 <body>
     <main>
@@ -172,10 +173,6 @@
       <p class="italic">Made from scratch with &#9829</p>
     </footer>
     <!-- scripts -->
-    <!-- snapsvg -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js" type="application/javascript"></script>
-    <!-- randomColor -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.4.4/randomColor.min.js" type="application/javascript"></script>
     <script src="assets/js/index.js" type="module"></script>
 </body>
 </html>
