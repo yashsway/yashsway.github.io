@@ -1,6 +1,5 @@
 'use strict';
 import {PaintCircles} from './components/paintCircles.js';
-import Snap from 'snapsvg';
 import randomColor from 'randomcolor';
 
 window.addEventListener('load', () => {
