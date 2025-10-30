@@ -11,6 +11,7 @@ tmp/
 
 # packages
 node_modules/
+.tool-versions
 
 # system
 .DS_Store
